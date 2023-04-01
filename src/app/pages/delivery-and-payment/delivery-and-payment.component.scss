@@ -1,0 +1,170 @@
+@import '../../shared/styles/variables';
+
+.main-line {
+	max-width: 100px;
+	height: 6px;
+	background-color: $primary-color;
+	margin: 40px auto 10px;
+	border-radius: 6px;
+}
+
+.main-title {
+	max-width: 350px;
+	font-size: 30px;
+	font-weight: bold;
+	margin: auto;
+}
+
+.delivery-wrapper {
+	padding: 20px 130px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.delivery {
+	max-width: 1750px;
+	margin: 0 auto;
+	font-size: 16px;
+
+	&-zones {
+		display: flex;
+		padding: 15px;
+
+		& img {
+			width: 100%;
+			-o-object-fit: cover;
+			   object-fit: cover;
+	
+		}
+	}
+
+	&-green-zone,
+	&-yellow-zone {
+		display: flex;
+		padding: 15px;
+	}
+
+	&-green-zone,
+	&-yellow-zone {
+		text-align: center;
+		& h2{
+			color: rgb(0, 187, 0);
+			font-weight: bold;
+			font-size: 22px;
+			margin-bottom: 10px;
+		}
+
+		& h3 {
+			max-width: 270px;
+			margin-bottom: 10px;
+		}
+
+		& p {
+			max-width: 270px;
+		}
+	}
+
+	&-yellow-zone {
+		& h2 {
+			color: rgb(219, 202, 16);
+		}
+	}
+
+	&-span span{
+		font-weight: bold;
+		color: rgb(0, 187, 0);
+	}
+
+	// ---------- map section
+	
+	&-map {
+		max-width: 1000px;
+		margin: 30px auto;
+	}
+
+	// ---------- description section
+
+	&-description {
+		font-size: 18px;
+		max-width: 770px;
+		margin: 50px auto;
+		line-height: 28px;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+		& p:first-child {
+			margin-bottom: 10px;
+		}
+	}
+
+}
+
+.payment {
+	position: relative;
+	display: flex;
+	max-width: 950px;
+	margin: 30px auto 50px;
+
+	&-cash,
+	&-card {
+		display: flex;
+		margin-left: 40px;
+
+		& h3 {
+			font-weight: bold;
+			font-size: 22px;
+		}
+	}
+
+	&-card {
+		margin-left: 70px;
+	}
+
+	&-text {
+		padding: 18px;
+		max-width: 270px;
+
+		& h3 {
+			margin-bottom: 10px;
+		}
+
+		& p {
+			line-height: 24px;
+		}
+	}
+
+	& img {
+		padding: 16px 10px;
+		background-color: $primary-color;
+		border-radius: 15px;
+	}
+
+	&-title {
+		max-width: 210px;
+		font-size: 30px;
+		font-weight: bold;
+		margin: auto;
+	}
+}
+
+.white-line {
+	height: 100%;
+	width: 1px;
+	background-color: rgb(158, 163, 169);
+	position: absolute;
+	left: 46%;
+	transform: translateX(-50%);
+}
+
+.delivery-end-text {
+	font-size: 18px;
+	max-width: 770px;
+	margin: 50px auto;
+	line-height: 28px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+	& p {
+		margin-bottom: 30px;
+	}
+}
+

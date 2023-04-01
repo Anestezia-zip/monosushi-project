@@ -1,0 +1,79 @@
+<header class="header">
+	<div class="header-wrapper">
+		<div class="header-logo" [routerLink]="[ '/' ]" routerLinkActive="active">
+			<img src="https://monosushi.com.ua/wp-content/uploads/2021/06/logo.svg" alt="">
+		</div>
+		<div class="header-nav-wrapper">
+			<nav class="menu">
+				<ul class="menu-nav">
+					<li class="menu-item">
+						<a class="hover" [routerLink]="[ '/discounts' ]" routerLinkActive="active">
+							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="discounts">
+							<span>Discounts</span>
+						</a>
+					</li>
+					<li class="menu-item">
+						<a class="hover" [routerLink]="[ '/products/rolls' ]" routerLinkActive="active">
+							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="rolls">
+							<span>Rolls</span>
+						</a>
+					</li>
+					<li class="menu-item">
+						<a class="hover" [routerLink]="[ '/products/sets' ]" routerLinkActive="active">
+							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg" alt="">
+							<span>Sets</span>
+						</a>
+					</li>
+					<li class="menu-item">
+						<a class="hover" [routerLink]="[ '/products/drinks' ]" routerLinkActive="active">
+							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg" alt="">
+							<span>Drinks</span>
+						</a>
+					</li>
+					<li class="menu-item">
+						<a class="hover" [routerLink]="[ '/products/sauces' ]" routerLinkActive="active">
+							<img src="https://monosushi.com.ua/wp-content/uploads/2021/09/icon.svg" alt="">
+							<span>Sauces</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="dropdown-menu">
+			<input type="checkbox" #sidebarIconToggleCheckbox class="openSidebarMenu" id="openSidebarMenu" (click)="toggleMenu()">
+			<label for="openSidebarMenu" class="sidebarIconToggle">
+				<div class="spinner diagonal part-1"></div>
+				<div class="spinner horizontal"></div>
+				<div class="spinner diagonal part-2"></div>
+			</label>
+			<div id="sidebarMenu"  *ngIf="menuOpened">
+				  <div class="main-content-wrapper">
+					  <a [routerLink]="[ '/delivery-and-payment' ]" routerLinkActive="active">Delivery and payment</a>
+					  <a [routerLink]="[ '/about-us' ]" routerLinkActive="active">About us</a>
+					  <a [routerLink]="[ '/discounts' ]" routerLinkActive="active">Discounts</a>
+				  </div>
+			</div>
+		</div>
+		<button class="header-callback">
+			<img class="header-callback-img" src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="we'll call u">
+			<span class="header-callback-text">WE'LL CALL YOU</span>
+		</button>
+		<div class="header-info">
+			<a class="header-phone" href="tel:0978780837">(+353) 087 65 41</a>
+			<div class="header-work-time">We are open <span>11am</span> to <span>10:30pm</span></div>
+		</div>
+		<div class="header-user" [routerLink]="[ '/admin' ]" routerLinkActive="active">
+			<div class="hover">
+				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
+			</div>
+		</div>
+	</div>
+	<div class="header-basket">
+			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket" oncontextmenu="return false">
+			<span>0 грн</span>
+	</div>
+</header>
+
+
+
+

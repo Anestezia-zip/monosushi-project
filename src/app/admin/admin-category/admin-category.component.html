@@ -1,0 +1,48 @@
+<div class="admin-table">
+	<button class="add-btn" type="button" (click)="toggleCategory()">ADD CATEGORY</button>
+	<table *ngIf="!categoriesToggle">
+		<thead>
+			<tr>
+				<th>№</th>
+				<th>Name</th>
+				<th>Path</th>
+				<th>Image</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let category of adminCategories">
+				<td>№{{ category.id }}</td>
+				<td>{{ category.name }}</td>
+				<td>{{ category.path }}</td>
+				<td class="table-img">
+					<img [src]="category.imagePath" alt="" height="50px">
+				</td>
+				<td class="btns-wrapper">
+					<button type="button" class="table-btn" (click)="editCategory(category)">Edit</button>
+					<button type="button" class="table-btn" [disabled]="editStatus" (click)="deleteCategory(category)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<form *ngIf="categoriesToggle" class="add-form" [formGroup]="categoryForm" (ngSubmit)="saveCategory()">
+		<div>
+			<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
+			<input type="text" name="path" placeholder="*Path" formControlName="path">
+		</div>
+		<ng-container *ngIf="!isUploaded">
+			<input type="file" name="" id="" (change)="upload($event)">
+			<div class="progress">
+				<div class="bar" [style.width.%]="uploadPercent"></div>
+			</div>
+		</ng-container>
+		<ng-container *ngIf="isUploaded">
+			<img width="10%" [src]="valueByControl('imagePath')" alt="">
+			<button type="button" (click)="deleteImage()">delete</button>
+		</ng-container>
+		
+		<button type="submit" [disabled]="categoryForm.invalid">
+			{{ editStatus ? 'UPDATE CATEGORY' : 'SAVE CATEGORY' }}
+		</button>
+	</form>
+</div>

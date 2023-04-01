@@ -1,0 +1,54 @@
+<div class="admin-table">
+	<button class="add-btn" type="button" (click)="toggleDiscount()">ADD DISCOUNT</button>
+	<table *ngIf="!discountsToggle">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Name</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Image</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let discount of adminDiscounts">
+				<td>{{ discount.date }}</td>
+				<td>{{ discount.name }}</td>
+				<td>{{ discount.title }}</td>
+				<td class="table-descr">
+					{{ discount.description | slice:0:60 }} 
+					<span *ngIf="discount.description.length > 60">...</span> 
+				</td>
+				<td class="table-img">
+					<img [src]="discount.imagePath" alt="" height="50px">
+				</td>
+				<td class="btns-wrapper">
+					<button type="button" class="table-btn" (click)="editDiscount(discount)">Edit</button>
+					<button type="button" class="table-btn" [disabled]="editStatus" (click)="deleteDiscount(discount)">Delete</button>
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<form *ngIf="discountsToggle" class="add-form" [formGroup]="discountForm" (ngSubmit)="saveDiscount()">
+		<div>
+			<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
+			<input type="text" name="title" placeholder="*Title" formControlName="title">
+		</div>
+		<input class="descr" type="text" name="description" placeholder="*Description" formControlName="description">
+		<ng-container *ngIf="!isUploaded">
+			<input type="file" name="" id="" (change)="upload($event)">
+			<div class="progress">
+				<div class="bar" [style.width.%]="uploadPercent"></div>
+			</div>
+		</ng-container>
+		<ng-container *ngIf="isUploaded">
+			<img width="10%" [src]="valueByControl('imagePath')" alt="">
+			<button type="button" (click)="deleteImage()">delete</button>
+		</ng-container>
+		<button type="submit" [disabled]="discountForm.invalid">
+			{{ editStatus ? 'UPDATE DISCOUNT' : 'SAVE DISCOUNT' }}
+		</button>
+	</form>
+</div>

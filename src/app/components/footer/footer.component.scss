@@ -1,0 +1,151 @@
+
+@import '../../shared/styles/variables';
+
+.footer {
+	min-width: 100%;
+	height: 180px;
+	font-size: 13px;
+	margin-top: 60px;
+	padding-bottom: 20px;
+
+	&-line {
+		min-width: 100%;
+		height: 4px;
+		background-color: $primary-color;
+	}
+
+	&-top {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+		padding-left: 30px;
+		padding-right: 30px;
+
+		&-img {
+			width: 80%;
+			margin-top: 26px;
+		}
+
+		&-list {
+			display: flex;
+			gap: 40px;
+			margin: 40px 160px 10px;
+			font-size: 15px;
+
+			& a:hover {
+				color: $primary-color;
+				transition: .3s all ease-in-out;
+			}
+		}
+
+		&-info {
+			margin-top: 30px;
+			margin-left: 60px;
+			text-align: center;
+
+			& p {
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+
+			& li {
+				margin-bottom: 10px;
+			}
+		}
+
+		&-order {
+			margin-top: 30px;
+			margin-left: 70px;
+			text-align: center;
+
+			& p {
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+
+			& a {
+				text-decoration: none;
+				color: black;
+			}
+
+			& a:hover {
+				color: $primary-color;
+				transition: .3s all ease-in-out;
+			}
+		}
+
+		&-worktime {
+			margin-top: 30px;
+			text-align: center;
+
+			& p {
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+
+			& span {
+				font-weight: bold;
+			}
+		}
+	}
+
+	& h2 {
+		margin-top: 10px;
+	}
+
+	&-bottom {
+		display: flex;
+		gap: 10px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	.pay {
+		display: flex;
+		gap: 14px;
+		margin-left: 230px;
+
+		&-card {
+			height: 20px;
+			padding: 10px;
+			border: 1px solid slategrey;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 26px;
+		}
+	}
+
+	.social-media {
+		display: flex;
+		margin-left: 270px;
+		margin-top: 10px;
+
+		& span {
+			line-height: 42px;
+		}
+
+		&-icons {
+			display: flex;
+			gap: 10px;
+			margin-left: 20px;
+			
+			& li {
+				padding: 10px 11px;
+				border: 1px solid $primary-color;
+				border-radius: 5px;
+				text-align: center;
+				background-color: $primary-color;
+				transition: .3s all ease-in-out;
+
+				&:hover {
+					background-color: #fff;
+					transition: .3s all ease-in-out;
+				}
+			}
+
+			& li:nth-child(1) {
+				padding: 10px 15px;
+			}
+		}
+	}
+}

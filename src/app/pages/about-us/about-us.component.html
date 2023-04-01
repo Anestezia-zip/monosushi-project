@@ -1,0 +1,77 @@
+
+<div class="main-line"></div>
+<h1 class="main-title">About us</h1>
+
+
+<div class="container">
+	<section class="about">
+		<h2>Monosushi - delivery of incredibly delicious sushi in Lviv. </h2>
+		<p>
+			Our top priority is high quality food and service. We are a team of professionals who work for you every day for  <br>
+			You. Quality and Speed are the two main priorities of the team. First and foremost, of course <br>
+			Quality. Sushi is prepared without delay, immediately after your order. And thanks to modern technology and <br>
+			responsible training of employees, fresh dishes can be delivered up to 59 minutes in 75% of orders.
+		</p>
+		<ul>
+			<li>high quality of food and service</li>
+			<li>team of professionals</li>
+			<li>modern cooking technologies</li>
+		</ul>
+	</section>
+	<section class="about-us">
+		<figure>
+			<img src="https://monosushi.com.ua/wp-content/uploads/2022/07/img_1127-scaled-568x568.jpg" alt="">
+		</figure>
+		<div class="about-us-right">
+			<h3>Hi! Shall we get acquainted?</h3>
+			<p>Monosushi – is a delivery of the most delicious sushi in Lviv, which was created by a team of perfectionists. 
+			Two friends who love rolls decided to create a product that they lacked in the Lviv market. 
+			A product in which everything will be perfect: taste, packaging, service, and all this at a loyal price!</p>
+		</div>
+	</section>
+	<section class="about-us">
+		<div class="about-us-left">
+			<h3>Our priority is your smile of pleasure</h3>
+			<p><span>Monosushi</span> – is the delivery of a single (mono) product. 
+				Rolls have long been an ordinary dish, but the process of their preparation still remains an art. 
+				Sushi should be prepared according to a clear technology, strictly following the traditions. 
+				And we are real experts in this! Do you have doubts? Then order free Monosushi delivery and enjoy.</p>
+		</div>
+		<figure>
+			<img src="https://monosushi.com.ua/wp-content/uploads/2022/07/img_8051-scaled-568x568.jpeg" alt="">
+		</figure>
+	</section>
+	<section class="accordion">
+		<div class="accordion-item" *ngFor="let faq of faqs; let i=index">
+		  <div class="accordion-header" (click)="toggleAccordion(i)">
+			<span class="each-question">
+				{{ faq.question }}
+			</span>
+			<i class="fas fa-plus" *ngIf="!faq.expanded"></i>
+			<i class="fas fa-minus" *ngIf="faq.expanded"></i>
+		  </div>
+		  <div class="accordion-content" *ngIf="faq.expanded">
+			<span class="each-answer">{{ faq.answer }}</span>
+		  </div>
+		</div>
+	  </section>
+	  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

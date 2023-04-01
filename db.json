@@ -1,0 +1,20 @@
+{
+  "discounts": [
+    {
+      "id": 1,
+      "date": "04.2023",
+      "name": "Roll of the week",
+      "title": "50% discount on «roll of the week»",
+      "description": "Every week there is a discount on one of the rolls in our menu",
+      "imagePath": "https://monosushi.com.ua/wp-content/uploads/2022/07/imgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "name": "роли",
+      "path": "rolls",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
+      "id": 1
+    }
+  ]
+}

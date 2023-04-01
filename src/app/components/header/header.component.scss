@@ -1,0 +1,345 @@
+
+@import '../../shared/styles/variables';
+
+// ----------------------------- header -----------------------------
+
+.header{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	max-width: 100%;
+
+	&-wrapper {
+		display: flex;
+		gap: 10px;
+	}
+
+	&-logo {
+		background-color: $primary-color;
+		padding: 16px 12px 16px 8px;
+
+		img {
+			width: 150px;
+		}
+	}
+
+	& a {
+		text-decoration: none;
+		color: black;
+	}
+
+	&-nav-wrapper {
+		padding-top: 20px;
+	}
+
+	&-callback {
+		width: 154px;
+		height: 40px;
+		background-color: $primary-color;
+		border: 2px solid $primary-color;
+		border-radius: 15px;
+		padding-left: 10px;
+		margin-top: 24px;
+		margin-left: 165px;
+		transition: 0.3s all ease-in-out;
+
+		&:hover {
+			background-color: #fff;
+			transition: 0.3s all ease-in-out;
+		}
+
+		&-img {
+			position: absolute;
+			left: 766px;
+			top: 34px;
+		}
+
+		&-text {
+			position: absolute;
+			left: 776px;
+			top: 36px;
+			font-weight: bold;
+			font-size: 14px;
+			margin-left: 8px;
+		}
+	}
+
+	&-info {
+		margin-left: 56px;
+		margin-top: 28px;
+		text-align: center;
+	}
+
+	&-phone {
+		font-weight: bold;
+		text-decoration: none;
+		color: $body-text;
+	}
+
+	&-work-time {
+		font-size: 12px;
+		margin-top: 6px;
+
+		& span {
+			font-weight: bold;
+		}
+	}
+
+	&-user {
+		margin-left: 64px;
+		margin-top: 30px;
+	}
+
+	&-basket {
+		margin-right: 25px;
+		margin-top: 14px;
+		background-color: $primary-color;
+		margin: 0;
+		padding: 18px;
+	}
+}
+
+.menu {
+	&-nav {
+		display: flex;
+		gap: 20px;
+	}
+
+	&-item span {
+		min-width: 45px;
+		margin-top: 8px;
+		font-weight: bold;
+		font-size: 14px;
+	}
+
+	&-item a {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&-item img {
+		height: 28px;
+	}
+}
+
+// ----------------------------- dropdown menu -----------------------------
+
+#sidebarMenu {
+	// display: none;
+    position: fixed;
+    overflow: none;
+    width: 120px;
+    z-index: 98;
+	border: 2px solid #b5d8f7;
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 0 60px 20px 30px;
+	padding-top: 80px;
+	transition: 0.3s all ease-in-out;
+}
+
+#sidebarMenu a {
+	font-weight: bold;
+	height: 30px;
+
+	& + a {
+		margin-top: 2px;
+	}
+
+	&:first-child {
+		padding-bottom: 12px;
+	}
+}
+
+.main-content-wrapper a{
+    width: 100%;
+    height: 40px;
+    display: block;
+    background: #fff;
+    text-align: left;
+    padding-top: 10px;
+    color: black;
+    text-decoration: none;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	padding: 16px 2px 2px 16px;
+	transition: 0.3s all ease-in-out;
+}
+
+.main-content-wrapper a:hover {
+	border: 2px solid $primary-color;
+	padding: 16px 2px 2px 16px;
+	border-radius: 10px;
+	transition: .3s all ease-in-out;
+}
+
+input[type="checkbox"]:checked ~ #sidebarMenu {
+	animation: 0.6s forwards fadeInDown;
+}
+input[type=checkbox] {
+    transition: 0.3s all ease-in-out;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: 0.3s all ease-in-out;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 22px;
+    width: 22px;
+    left:620px;
+    top:38px;
+
+	&::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        transition: .3s ease-in-out;
+    }
+    
+    &::before {
+        top: -10px;
+        left: -10px;
+        border-top: 2px solid transparent;
+        border-left: 2px solid transparent;
+    }
+    
+    &::after {
+        right: -10px;
+        bottom: -10px;
+        border-bottom: 2px solid transparent;
+        border-right: 2px solid transparent;
+    }
+    
+    &:hover::before,
+    &:hover::after {
+        width: calc(100% + 19px);
+        height: calc(100% + 19px);
+		border-radius: 5px;
+		border-color: $primary-color;
+    }
+}
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3.3px;
+    width: 100%;
+    background-color: black;
+	margin-bottom: 2px;
+	border-radius: 5px;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+	margin-bottom: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+	margin-bottom: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+	margin-bottom: 0;
+}
+
+input[type=checkbox]:checked ~ .sidebarIconToggle:hover::before,
+input[type=checkbox]:checked ~ .sidebarIconToggle:hover::after {
+	border-color: transparent;
+}
+
+
+//  @media screen and (max-width: 950px) {
+//       .sidebarIconToggle{
+//           display:block
+//        }
+//     }
+
+// ----------------------------- animate border -----------------------------
+
+.hover {
+    position: relative;
+	padding: 5px;
+	min-width: 35px;
+    margin: auto;
+    cursor: pointer;
+	text-align: center;
+    
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        transition: .3s ease-in-out;
+    }
+    
+    &::before {
+        top: -5px;
+        left: -5px;
+        border-top: 2px solid transparent;
+        border-left: 2px solid transparent;
+    }
+    
+    &::after {
+        right: -5px;
+        bottom: -5px;
+        border-bottom: 2px solid transparent;
+        border-right: 2px solid transparent;
+    }
+    
+    &:hover::before,
+    &:hover::after {
+        width: calc(100% + 9px);
+        height: calc(100% + 9px);
+		border-radius: 5px;
+		border-color: $primary-color;
+    }
+}
+
+@keyframes fadeInDown { 
+    0% {                
+        opacity: 0;
+        transform: translate3d(0px, -10%, 0px);
+    }
+    100% {              
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+

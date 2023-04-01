@@ -1,0 +1,12 @@
+@mixin box ($w, $h, $c) {
+    width: $w;
+    height: $h;
+    background-color: $c;
+}
+
+@mixin size($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+// @include size(300px, 100px);
