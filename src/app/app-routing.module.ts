@@ -12,6 +12,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, children: [
     { path: 'discount', component: AdminDiscountComponent },
     { path: 'category', component: AdminCategoryComponent },
+    { path: 'product', component: AdminProductComponent },
     { path: '', pathMatch: 'full', redirectTo: 'discount' },
   ] },
 

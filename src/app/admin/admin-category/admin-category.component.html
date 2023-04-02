@@ -1,6 +1,28 @@
 <div class="admin-table">
-	<button class="add-btn" type="button" (click)="toggleCategory()">ADD CATEGORY</button>
-	<table *ngIf="!categoriesToggle">
+		<button class="add-btn" type="button" (click)="toggleCategory()">ADD CATEGORY</button>
+
+		<form class="add-form fade-in-down" [formGroup]="categoryForm" (ngSubmit)="saveCategory()" *ngIf="categoryToggle">
+			<div>
+				<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
+				<input type="text" name="path" placeholder="*Path" formControlName="path">
+			</div>
+			<ng-container *ngIf="!isUploaded">
+				<input type="file" name="" id="" (change)="upload($event)">
+				<div class="progress">
+					<div class="bar" [style.width.%]="uploadPercent"></div>
+				</div>
+			</ng-container>
+			<ng-container *ngIf="isUploaded">
+				<img width="10%" [src]="valueByControl('imagePath')" alt="">
+				<button type="button" (click)="deleteImage()">delete</button>
+			</ng-container>
+			
+			<button type="submit" [disabled]="categoryForm.invalid">
+				{{ editStatus ? 'UPDATE CATEGORY' : 'SAVE CATEGORY' }}
+			</button>
+		</form>
+
+	<table *ngIf="!categoryToggle" class="fade-in-down">
 		<thead>
 			<tr>
 				<th>№</th>
@@ -25,24 +47,5 @@
 			</tr>
 		</tbody>
 	</table>
-	<form *ngIf="categoriesToggle" class="add-form" [formGroup]="categoryForm" (ngSubmit)="saveCategory()">
-		<div>
-			<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
-			<input type="text" name="path" placeholder="*Path" formControlName="path">
-		</div>
-		<ng-container *ngIf="!isUploaded">
-			<input type="file" name="" id="" (change)="upload($event)">
-			<div class="progress">
-				<div class="bar" [style.width.%]="uploadPercent"></div>
-			</div>
-		</ng-container>
-		<ng-container *ngIf="isUploaded">
-			<img width="10%" [src]="valueByControl('imagePath')" alt="">
-			<button type="button" (click)="deleteImage()">delete</button>
-		</ng-container>
-		
-		<button type="submit" [disabled]="categoryForm.invalid">
-			{{ editStatus ? 'UPDATE CATEGORY' : 'SAVE CATEGORY' }}
-		</button>
-	</form>
+
 </div>

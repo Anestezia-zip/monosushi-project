@@ -1,3 +1,42 @@
 
 <div class="main-line"></div>
 <h1 class="main-title">Products</h1>
+
+<ul class="products-tabs">
+	<li class="products-item">
+	  	<a class="products-link" (click)="selectTab(1)" [class.active]="selectedTab === 1">All</a>
+	</li>
+	<li class="products-item">
+	  	<a class="products-link" (click)="selectTab(2)" [class.active]="selectedTab === 2">Philadelphia </a>
+	</li>
+	<li class="products-item" >
+		<a class="products-link" (click)="selectTab(3)" [class.active]="selectedTab === 3">Сalifornia</a>
+	</li>
+	<li class="products-item">
+		<a class="products-link" (click)="selectTab(4)" [class.active]="selectedTab === 4">Baked</a>
+	</li>
+	<li class="products-item">
+		<a class="products-link" (click)="selectTab(5)" [class.active]="selectedTab === 5">Branded</a>
+	</li>
+	<li class="products-item">
+		<a class="products-link" (click)="selectTab(6)" [class.active]="selectedTab === 6">Maki</a>
+	</li>
+	<li class="products-item">
+		<a class="products-link" (click)="selectTab(7)" [class.active]="selectedTab === 7">Premium</a>
+	</li>
+</ul>
+
+<div class="cards">
+	<div class="card" *ngFor="let product of adminProducts">
+		<img [src]="product.imagePath" alt="">
+		<div class="title">{{ product.name }}</div>
+		<div class="card-ingredients">
+			<span class="description">{{ product.ingredients }}</span><span class="weight">{{ product.weight }}</span>
+		</div>
+		<div>
+			<span class="price"><b>{{ product.price }}</b> грн </span>
+			<span class="amount"><button><i class="fa-solid fa-minus fa-lg"></i></button> 1 <button><i class="fa-solid fa-plus fa-lg"></i></button></span>
+			<button>ORDER</button>
+		</div>
+	</div>
+</div>

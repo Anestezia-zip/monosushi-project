@@ -1,6 +1,28 @@
 <div class="admin-table">
 	<button class="add-btn" type="button" (click)="toggleDiscount()">ADD DISCOUNT</button>
-	<table *ngIf="!discountsToggle">
+
+	<form *ngIf="discountsToggle" class="add-form fade-in-down" [formGroup]="discountForm" (ngSubmit)="saveDiscount()">
+		<div>
+			<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
+			<input type="text" name="title" placeholder="*Title" formControlName="title">
+		</div>
+		<input class="descr" type="text" name="description" placeholder="*Description" formControlName="description">
+		<ng-container *ngIf="!isUploaded">
+			<input type="file" name="" id="" (change)="upload($event)">
+			<div class="progress">
+				<div class="bar" [style.width.%]="uploadPercent"></div>
+			</div>
+		</ng-container>
+		<ng-container *ngIf="isUploaded">
+			<img width="10%" [src]="valueByControl('imagePath')" alt="">
+			<button type="button" (click)="deleteImage()">delete</button>
+		</ng-container>
+		<button type="submit" [disabled]="discountForm.invalid">
+			{{ editStatus ? 'UPDATE DISCOUNT' : 'SAVE DISCOUNT' }}
+		</button>
+	</form>
+
+	<table *ngIf="!discountsToggle" class="fade-in-down">
 		<thead>
 			<tr>
 				<th>Date</th>
@@ -31,24 +53,4 @@
 			</tr>
 		</tbody>
 	</table>
-	<form *ngIf="discountsToggle" class="add-form" [formGroup]="discountForm" (ngSubmit)="saveDiscount()">
-		<div>
-			<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
-			<input type="text" name="title" placeholder="*Title" formControlName="title">
-		</div>
-		<input class="descr" type="text" name="description" placeholder="*Description" formControlName="description">
-		<ng-container *ngIf="!isUploaded">
-			<input type="file" name="" id="" (change)="upload($event)">
-			<div class="progress">
-				<div class="bar" [style.width.%]="uploadPercent"></div>
-			</div>
-		</ng-container>
-		<ng-container *ngIf="isUploaded">
-			<img width="10%" [src]="valueByControl('imagePath')" alt="">
-			<button type="button" (click)="deleteImage()">delete</button>
-		</ng-container>
-		<button type="submit" [disabled]="discountForm.invalid">
-			{{ editStatus ? 'UPDATE DISCOUNT' : 'SAVE DISCOUNT' }}
-		</button>
-	</form>
 </div>

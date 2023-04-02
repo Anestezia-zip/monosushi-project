@@ -1,0 +1,73 @@
+
+
+<div class="admin-table">
+			<button class="add-btn" type="button" (click)="toggleForm()">ADD PRODUCT</button>
+
+			<form class="add-form fade-in-down" [formGroup]="productForm" (ngSubmit)="saveProduct()" *ngIf="productsToggle">
+				<div>
+					<select formControlName="category" class="form-select">
+						<option [ngValue]="category" *ngFor="let category of adminCategories">{{ category.name }}</option>
+					</select>
+				</div>
+				<div>
+					<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
+					<input type="text" name="path" placeholder="*Path" formControlName="path">
+				</div>
+				<div>
+					<input class="ingredients-input" type="text" name="ingredients" placeholder="*Ingredients" formControlName="ingredients">
+				</div>
+				<div>
+					<input type="text" class="name-input" name="weight" placeholder="*Weight" formControlName="weight">
+					<input type="number" name="price" placeholder="*Price" formControlName="price">
+				</div>
+				<ng-container *ngIf="!isUploaded">
+					<input type="file" name="" id="" (change)="upload($event)">
+					<div class="progress">
+						<div class="bar" [style.width.%]="uploadPercent"></div>
+					</div>
+				</ng-container>
+				<ng-container *ngIf="isUploaded">
+					<img width="10%" [src]="valueByControl('imagePath')" alt="">
+					<button type="button" (click)="deleteImage()">delete</button>
+				</ng-container>
+				
+				<button type="submit" [disabled]="productForm.invalid">
+					{{ editStatus ? 'UPDATE PRODUCT' : 'SAVE PRODUCT' }}
+				</button>
+			</form>
+
+
+	<table *ngIf="!productsToggle" class="fade-in-down">
+		<thead>
+			<tr>
+				<th>№</th>
+				<th>Category</th>
+				<th>Name</th>
+				<th>Ingredients</th>
+				<th>Path</th>
+				<th>Weight</th>
+				<th>Price</th>
+				<th>Image</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let product of adminProducts">
+				<td>{{ product.id }}</td>
+				<td>{{ product.category.name }}</td>
+				<td>{{ product.name }}</td>
+				<td>{{ product.ingredients }}</td>
+				<td>{{ product.path }}</td>
+				<td>{{ product.weight }}</td>
+				<td>{{ product.price }}</td>
+				<td class="table-img">
+					<img [src]="product.imagePath" alt="" height="50px">
+				</td>
+				<td class="btns-wrapper">
+					<button type="button" class="table-btn" (click)="editProduct(product)">Edit</button>
+					<button type="button" class="table-btn" [disabled]="editStatus" (click)="deleteProduct(product)">Delete</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

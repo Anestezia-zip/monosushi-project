@@ -7,14 +7,106 @@
       "title": "50% discount on «roll of the week»",
       "description": "Every week there is a discount on one of the rolls in our menu",
       "imagePath": "https://monosushi.com.ua/wp-content/uploads/2022/07/imgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg"
+    },
+    {
+      "date": "04.2023",
+      "name": "3 + 1 = 5",
+      "title": "Order 5 rolls and pay for 4",
+      "description": "Order 10 rolls and pay for 8, and so on. The roll with the lowest price is considered free.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F3%2B1%3D5.jpg?alt=media&token=0ee3ec7f-31a4-4fdd-ab43-a6156b53469c",
+      "id": 2
     }
   ],
   "categories": [
     {
-      "name": "роли",
+      "name": "Роли",
       "path": "rolls",
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
       "id": 1
+    },
+    {
+      "name": "Піцца",
+      "path": "pizza",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=b3c226a0-e513-4b78-82f2-ed65e363491c",
+      "id": 2
+    },
+    {
+      "name": "Десерти",
+      "path": "deserts",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=ce5950a1-05e8-40e3-aa5d-99fe68014f10",
+      "id": 3
+    },
+    {
+      "name": "Напої",
+      "path": "drinks",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=31e0016f-8626-431f-ad8f-4a6512bd8c4b",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "category": {
+        "name": "роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
+        "id": 1
+      },
+      "name": "Philadelphia with salmon",
+      "ingredients": "Rice, cream cheese, cucumber, salmon",
+      "path": "philadelphia-with-salmon",
+      "weight": "280 g",
+      "price": 280,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F1.-filadelfiya-z-lososem.jpg?alt=media&token=b2b0cc9d-66fd-4fe1-b508-90da40289d82",
+      "count": 1,
+      "id": 1
+    },
+    {
+      "category": {
+        "name": "роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
+        "id": 1
+      },
+      "name": "Philadelphia in sesame seeds",
+      "ingredients": "Rice, cream cheese, cucumber, salmon, sesame seeds",
+      "path": "зhiladelphia-in-sesame-seeds",
+      "weight": "240 g",
+      "price": 248,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F2.-filadelfiya-v-kunzhuti.jpg?alt=media&token=b0a458cb-821a-42bb-8733-84de607d365c",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": {
+        "name": "роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
+        "id": 1
+      },
+      "name": "Philadelphia with tuna",
+      "ingredients": "Rice, cream cheese, avocado, tuna, sweet chili sauce",
+      "path": "philadelphia-with-tuna",
+      "weight": "270 g",
+      "price": 302,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Ffiladelfiya-z-tuncem.jpg?alt=media&token=becfa389-2581-49fc-af95-63b8380ba2c7",
+      "count": null,
+      "id": 3
+    },
+    {
+      "category": {
+        "name": "роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
+        "id": 1
+      },
+      "name": "Philadelphia-with-eel",
+      "ingredients": "Rice, cream cheese, avocado, eel, unagi sauce, sesame seeds",
+      "path": "philadelphia-with-eel",
+      "weight": "280 g",
+      "price": 339,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F4.-filadelfiya-z-vugr.jpg?alt=media&token=40159fe6-c488-4e7e-8f7d-0028fa54b04f",
+      "count": null,
+      "id": 4
     }
   ]
 }

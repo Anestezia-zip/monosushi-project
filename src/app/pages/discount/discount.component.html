@@ -1,3 +1,14 @@
 
 <div class="main-line"></div>
 <h1 class="main-title">Discounts</h1>
+
+<div class="cards">
+	<div class="card" *ngFor="let discount of adminDiscounts">
+		<figure>
+			<img [src]="discount.imagePath" alt="">
+		</figure>
+		<div class="title">{{ discount.name }}</div>
+		<div class="main-line card-line"></div>
+		<button>FIND OUT MORE</button>
+	</div>
+</div>

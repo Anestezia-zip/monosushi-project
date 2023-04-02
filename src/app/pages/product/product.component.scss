@@ -14,3 +14,135 @@
 	font-weight: bold;
 	margin: auto;
 }
+
+
+.main-line {
+	width: 190px;
+	height: 6px;
+	background-color: $primary-color;
+	margin: 100px auto 10px;
+	border-radius: 6px;
+}
+
+.main-title {
+	width: 190px;
+	font-size: 40px;
+	font-weight: bold;
+	margin: auto;
+}
+
+.products-tabs {
+	display: flex;
+	justify-content: center;
+	margin: 46px auto;
+	padding: 0;
+	list-style: none;
+  
+	.products-item {
+
+	  .products-link {
+		display: block;
+		padding: 10px;
+		text-decoration: none;
+		color: #000;
+		border: 1px solid lightgray;
+		padding: 26px 50px;
+		font-weight: bold;
+  
+		&.active {
+		  border-bottom-color: transparent;
+		  border-left-color: transparent;
+		  border-top: 5px solid $primary-color;
+		  padding: 22px 50px;
+		}
+	  }
+	}
+  }
+
+  .cards {
+	display: flex;
+  }
+  
+  .card {
+	width: 350px;
+	height: 420px;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid transparent;
+	
+	&:hover {
+		border: 1px solid $primary-color;
+		border-radius: 6px;
+		transition: .3s all ease-in-out;
+		& img {
+			transform: scale(1.02);
+  			transition: transform .2s ease-in-out;
+		}
+	}
+
+	& img {
+		width: 100%;
+		margin-top: 40px;
+		margin-bottom: 50px;
+	}
+
+	& .title {
+		font-weight: bold;
+		font-size: 20px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	&-ingredients {
+		display: flex;
+		align-items: baseline;
+		margin-bottom: 50px;
+	}
+
+	& .description {
+		display: inline-block;
+		max-width: 260px;
+	}
+
+	& .weight {
+		display: inline-block;
+		font-weight: bold;
+		margin-left: 10px;
+	}
+
+	& .price {
+		margin-right: 20px;
+		& b {
+			font-weight: bold;
+		}
+	} 
+
+	& .amount {
+		padding: 10px;
+		border: 1px solid lightgray;
+		border-radius: 6px;
+		font-weight: bold;
+
+		& button {
+			background-color: transparent;
+			border: none;
+		}
+	}
+
+	& button {
+		background-color: $primary-color;
+		border-radius: 6px;
+		border: 2px solid $primary-color;
+		padding: 10px;
+		font-weight: bold;
+		font-size: 16px;
+		margin-left: 16px;
+		transition: .2s all ease-in-out;
+
+		&:hover {
+			transition: .2s all ease-in-out;
+			background-color: #fff;
+		}
+	}
+
+  }

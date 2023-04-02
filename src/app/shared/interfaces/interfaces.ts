@@ -24,3 +24,24 @@ export interface ICategoryRequest {
 export interface ICategoryResponse extends ICategoryRequest {
 	id: number;
 }
+
+// ------------------------------------------- Product Interface
+
+export interface IProductRequest {
+	category: ICategoryResponse;
+	name: string;
+	ingredients: string;
+	path: string;
+	description: string;
+	weight: string;
+	price: string;
+	imagePath: string;
+	proteins: number;
+	carbohydrates: number;
+	fat: number;
+	calories: number;
+}
+
+export interface IProductResponse extends IProductRequest {
+	id: number; 
+}
