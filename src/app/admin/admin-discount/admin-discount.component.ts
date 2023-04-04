@@ -36,6 +36,7 @@ export class AdminDiscountComponent implements OnInit {
     this.discountForm = this.fb.group({
       date: [this.currentDate],
       name: [null, Validators.required],
+      path: [null, Validators.required],
       title: [null, Validators.required],
       description: [null, Validators.required],
       imagePath: [null, Validators.required]
@@ -73,6 +74,7 @@ export class AdminDiscountComponent implements OnInit {
     this.discountForm.patchValue({
       date: this.currentDate,
       name: discount.name,
+      path: discount.path,
       title: discount.title,
       description: discount.description,
       imagePath: discount.imagePath

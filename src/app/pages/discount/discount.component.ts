@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IDiscountResponse } from 'src/app/shared/interfaces/interfaces';
 import { DiscountService } from 'src/app/shared/services/discount/discount.service';
 
@@ -7,9 +7,9 @@ import { DiscountService } from 'src/app/shared/services/discount/discount.servi
   templateUrl: './discount.component.html',
   styleUrls: ['./discount.component.scss']
 })
-export class DiscountComponent {
+export class DiscountComponent implements OnInit{
 
-  public adminDiscounts: IDiscountResponse[] = [];
+  public userDiscounts: IDiscountResponse[] = [];
 
   constructor(
     private discountService: DiscountService,
@@ -21,7 +21,7 @@ export class DiscountComponent {
 
   loadDiscounts(): void {
     this.discountService.getAll().subscribe(data => {
-      this.adminDiscounts = data;
+      this.userDiscounts = data;
     })
   }
  

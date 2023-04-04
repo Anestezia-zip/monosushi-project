@@ -4,42 +4,44 @@
       "id": 1,
       "date": "04.2023",
       "name": "Roll of the week",
-      "title": "50% discount on «roll of the week»",
-      "description": "Every week there is a discount on one of the rolls in our menu",
-      "imagePath": "https://monosushi.com.ua/wp-content/uploads/2022/07/imgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg"
+      "title": "50% discount on «Roll of the week»",
+      "description": "Every week there is a discount on one of the rolls in our menu. You can find the \"Roll of the Week\" on the main page of our website. The discount is valid for a minimum order amount of 300 UAH. This promotion can not be combined with other promotions.",
+      "imagePath": "https://monosushi.com.ua/wp-content/uploads/2022/07/imgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg",
+      "path": "roll-of-the-week"
     },
     {
       "date": "04.2023",
       "name": "3 + 1 = 5",
       "title": "Order 5 rolls and pay for 4",
-      "description": "Order 10 rolls and pay for 8, and so on. The roll with the lowest price is considered free.",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F3%2B1%3D5.jpg?alt=media&token=0ee3ec7f-31a4-4fdd-ab43-a6156b53469c",
-      "id": 2
+      "description": "Order 5 rolls and pay for 4. Order 10 rolls and pay for 8, and so on. The roll with the lowest price is considered free. This promotion cannot be combined with other promotions.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F3%2B1%3D5-.jpg?alt=media&token=3e4fc577-3071-46cd-8f48-6c080a33880a",
+      "id": 2,
+      "path": "3+1=5"
     }
   ],
   "categories": [
     {
-      "name": "Роли",
+      "name": "Rolls",
       "path": "rolls",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls%20(1).svg?alt=media&token=eeb5cd97-e3b4-4f86-9423-7d612a2ebcc8",
       "id": 1
     },
     {
-      "name": "Піцца",
-      "path": "pizza",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=b3c226a0-e513-4b78-82f2-ed65e363491c",
+      "name": "Sets",
+      "path": "sets",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=21f94dd6-d07a-4a5f-b920-b71651fd9d26",
       "id": 2
     },
     {
-      "name": "Десерти",
-      "path": "deserts",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=ce5950a1-05e8-40e3-aa5d-99fe68014f10",
+      "name": "Drinks",
+      "path": "drinks",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=b33abe81-7340-455c-b943-75cf4eb2b231",
       "id": 3
     },
     {
-      "name": "Напої",
-      "path": "drinks",
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=31e0016f-8626-431f-ad8f-4a6512bd8c4b",
+      "name": "Sauces",
+      "path": "sauces",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-sauces.svg?alt=media&token=66cf9bc2-924f-4bbf-8be7-c221e47f2ddc",
       "id": 4
     }
   ],
@@ -56,7 +58,7 @@
       "path": "philadelphia-with-salmon",
       "weight": "280 g",
       "price": 280,
-      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F1.-filadelfiya-z-lososem.jpg?alt=media&token=b2b0cc9d-66fd-4fe1-b508-90da40289d82",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F1.-filadelfiya-z-lososem.jpg?alt=media&token=6f23a00d-d8ac-41c0-98d3-4671aff7d357",
       "count": 1,
       "id": 1
     },
@@ -87,9 +89,9 @@
       "ingredients": "Rice, cream cheese, avocado, tuna, sweet chili sauce",
       "path": "philadelphia-with-tuna",
       "weight": "270 g",
-      "price": 302,
+      "price": 303,
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Ffiladelfiya-z-tuncem.jpg?alt=media&token=becfa389-2581-49fc-af95-63b8380ba2c7",
-      "count": null,
+      "count": 1,
       "id": 3
     },
     {
@@ -99,14 +101,62 @@
         "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=2f058b48-e5c2-48d1-a3d1-91d0b780b0a9",
         "id": 1
       },
-      "name": "Philadelphia-with-eel",
+      "name": "Philadelphia with eel",
       "ingredients": "Rice, cream cheese, avocado, eel, unagi sauce, sesame seeds",
       "path": "philadelphia-with-eel",
       "weight": "280 g",
-      "price": 339,
+      "price": 340,
       "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2F4.-filadelfiya-z-vugr.jpg?alt=media&token=40159fe6-c488-4e7e-8f7d-0028fa54b04f",
-      "count": null,
+      "count": 1,
       "id": 4
+    },
+    {
+      "category": {
+        "name": "Сети",
+        "path": "sets",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=8f94d351-c31b-46c6-9f92-3ff3f719e6b1",
+        "id": 3
+      },
+      "name": "Monocombo",
+      "ingredients": "Philadelphia with salmon. California with shrimp",
+      "path": "monocombo",
+      "weight": "530 g",
+      "price": 415,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fset-monocombo.jpg?alt=media&token=bf0500b9-7209-4b73-a7dc-f1213a5f3137",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "category": {
+        "name": "Напої",
+        "path": "drinks",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=fb990ec4-9ce0-4545-a420-1d0bf851b604",
+        "id": 2
+      },
+      "name": "Apple and cherry juice \"Galicia\"",
+      "ingredients": " ",
+      "path": "apple-and-cherry-juice",
+      "weight": "1 l",
+      "price": 62,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fdrinks-vyshnya.jpg?alt=media&token=f4c0d2ee-4b3d-4f12-ae9c-9d8a8657fc7c",
+      "count": 1,
+      "id": 6
+    },
+    {
+      "category": {
+        "name": "Соуси",
+        "path": "sauces",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Fnav-img-rolls.svg?alt=media&token=d31e8e74-3ce6-48eb-b68e-8f7166ae54ab",
+        "id": 4
+      },
+      "name": "Unagi sauce",
+      "ingredients": " ",
+      "path": "unagi-sauce",
+      "weight": "50 ml",
+      "price": 34,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/monosushi-54daf.appspot.com/o/images%2Funagi-sauce.jpg?alt=media&token=bee48569-9914-4f3d-a242-44a8740b8771",
+      "count": 1,
+      "id": 7
     }
   ]
 }

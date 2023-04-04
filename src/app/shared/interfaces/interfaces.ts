@@ -3,6 +3,7 @@
 
 export interface IDiscountRequest {
     date?: string;
+	path: string;
 	name: string;
 	title: string;
     description: string;
@@ -34,12 +35,13 @@ export interface IProductRequest {
 	path: string;
 	description: string;
 	weight: string;
-	price: string;
+	price: number;
 	imagePath: string;
 	proteins: number;
 	carbohydrates: number;
 	fat: number;
 	calories: number;
+	count: number;
 }
 
 export interface IProductResponse extends IProductRequest {

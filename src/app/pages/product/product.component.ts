@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IProductResponse } from 'src/app/shared/interfaces/interfaces';
 import { ProductService } from 'src/app/shared/services/product/product.service';
 
@@ -7,9 +9,10 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit, OnDestroy{
 
-  public adminProducts: IProductResponse[] = [];
+  public userProducts: IProductResponse[] = [];
+  private evenSubscription!: Subscription;
   selectedTab = 1;
   
   selectTab(tabIndex: number) {
@@ -18,16 +21,28 @@ export class ProductComponent {
 
   constructor(
     private productService: ProductService,
-  ){}
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ){
+    this.evenSubscription = this.router.events.subscribe(event => {
+      if(event instanceof NavigationEnd) {
+        this.loadProducts();
+      }
+    })
+  }
 
   ngOnInit(): void {
-    this.loadProducts();
   }
 
   loadProducts(): void {
-    this.productService.getAll().subscribe(data => {
-      this.adminProducts = data;
+    const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string
+    this.productService.getAllByCategory(categoryName).subscribe(data => {
+      this.userProducts = data;
     })
+  }
+
+  ngOnDestroy(): void {
+    this.evenSubscription.unsubscribe();
   }
  
   

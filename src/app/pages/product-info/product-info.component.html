@@ -1,1 +1,34 @@
-<p>product-info works!</p>
+
+<div class="discount-nav">
+	<span class="nav-text" [routerLink]="[ '/' ]" routerLinkActive="active">Main</span>
+	<span class="nav-circle">•</span>
+	<span class="nav-text" [routerLink]="[ '/products/rolls' ]" routerLinkActive="active">Products</span>
+	<span class="nav-circle">•</span>
+	<span class="nav-text">{{ currentProduct.name }}</span>
+</div>
+
+<div class="cards-container">
+		<div class="card">
+		  <div class="img-wrap">
+			<img [src]="currentProduct.imagePath" alt="">
+		  </div>
+		  <div class="card-content">
+			<div class="title">{{ currentProduct.name }}</div>
+			<div class="card-description">
+			  <div class="description"><span>Ingredients: </span> {{ currentProduct.ingredients }}</div>
+			  <div class="weight"><span>Weight: </span> {{ currentProduct.weight }}</div>
+			</div>
+			<div class="card-footer">
+			  <div class="price">
+				{{ +currentProduct.price * +currentProduct.count}} 
+				грн</div>
+			  <div class="amount">
+				<button (click)="productCount(currentProduct, false)"><i class="fa-solid fa-minus fa-lg"></i></button>
+				<input type="text" class="amount-input" [value]="currentProduct.count">
+				<button (click)="productCount(currentProduct, true)"><i class="fa-solid fa-plus fa-lg"></i></button>
+			  </div>
+			  <button class="order-btn" (click)="addToBasket(currentProduct)">ORDER</button>
+			</div>
+		  </div>
+		</div>
+</div>

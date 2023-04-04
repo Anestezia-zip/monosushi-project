@@ -1,0 +1,160 @@
+
+@import '../../shared/styles/variables';
+
+.cards-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+  .card {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 100px 30px;
+	margin: 18px;
+	margin-top: 40px;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: .3s all ease-in-out;
+  }
+  
+  .img-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 250px;
+	width: 40%;
+	overflow: hidden;
+  }
+  
+  .img-wrap img {
+	max-height: 100%;
+	max-width: 100%;
+	object-fit: cover;
+  }
+  
+  .card-content {
+	display: flex;
+	flex-direction: column;
+	align-items:flex-start;
+	justify-content: space-between;
+	height: calc(100% - 250px);
+	padding: 10px;
+	margin-left: 80px;
+	text-align: left;
+  }
+  
+  .title {
+	max-width: 400px;
+	font-size: 38px;
+	font-weight: bold;
+	line-height: 46px;
+	text-align: left;
+	margin-bottom: 40px;
+	transition: .2s ease-in-out;
+  }
+  
+  .description {
+	text-align: left;
+	margin-bottom: 20px;
+
+	& span {
+		color: $primary-color;
+		font-weight: bold;	
+		font-size: 20px;
+	}
+  }
+  
+  .card-description {
+	font-size: 18px;
+  }
+  
+  .weight {
+	min-width: 54px;
+
+	& span {
+		color: $primary-color;
+		font-weight: bold;
+		font-size: 20px;
+	}
+  }
+  
+  .card-footer {
+	display: flex;
+	gap: 16px;
+	justify-content: space-around;
+	align-items: center;
+	width: 80%;
+	margin-top: 40px;
+  }
+  
+  .price {
+	font-size: 20px;
+	font-weight: bold;
+	min-width: 80px;
+  }
+  
+  .amount {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	border: 1px solid lightgray;
+	padding: 12px 6px;
+	border-radius: 6px;
+
+	&-input {
+		font-size: 20px;
+		width: 20px;
+		border: none;
+	}
+  }
+  
+  .amount button {
+	padding: 5px;
+	border-radius: 6px;
+	border: none;
+	background-color: transparent;
+	color: #000;
+	outline: none;
+	cursor: pointer;
+	margin: 0 10px;
+
+	&:hover {
+		transition: .2s all ease-in-out;
+		background-color: $primary-color;
+	}
+
+  }
+  
+   .order-btn {
+		background-color: $primary-color;
+		border-radius: 6px;
+		border: 2px solid $primary-color;
+		padding: 10px 16px;
+		font-weight: bold;
+		font-size: 18px;
+		transition: .2s all ease-in-out;
+
+		&:hover {
+			transition: .2s all ease-in-out;
+			background-color: #fff;
+		}
+	}
+  
+.discount-nav {
+	margin-top: 25px;
+	margin-left: 60px;
+}
+
+.nav-circle {
+	font-size: 30px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.nav-text {
+	font-size: 16px;
+}

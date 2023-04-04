@@ -14,40 +14,24 @@
 							<span>Discounts</span>
 						</a>
 					</li>
-					<li class="menu-item">
-						<a class="hover" [routerLink]="[ '/products/rolls' ]" routerLinkActive="active">
-							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="rolls">
-							<span>Rolls</span>
-						</a>
-					</li>
-					<li class="menu-item">
-						<a class="hover" [routerLink]="[ '/products/sets' ]" routerLinkActive="active">
-							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg" alt="">
-							<span>Sets</span>
-						</a>
-					</li>
-					<li class="menu-item">
-						<a class="hover" [routerLink]="[ '/products/drinks' ]" routerLinkActive="active">
-							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg" alt="">
-							<span>Drinks</span>
-						</a>
-					</li>
-					<li class="menu-item">
-						<a class="hover" [routerLink]="[ '/products/sauces' ]" routerLinkActive="active">
-							<img src="https://monosushi.com.ua/wp-content/uploads/2021/09/icon.svg" alt="">
-							<span>Sauces</span>
+					<li class="menu-item" *ngFor="let category of userCategories">
+						<a class="hover" [routerLink]="[ '/products/'+category.path ]">
+							<img [src]="category.imagePath" alt="rolls">
+							<span>{{ category.name }}</span>
 						</a>
 					</li>
 				</ul>
 			</nav>
 		</div>
 		<div class="dropdown-menu">
-			<input type="checkbox" #sidebarIconToggleCheckbox class="openSidebarMenu" id="openSidebarMenu" (click)="toggleMenu()">
-			<label for="openSidebarMenu" class="sidebarIconToggle">
-				<div class="spinner diagonal part-1"></div>
-				<div class="spinner horizontal"></div>
-				<div class="spinner diagonal part-2"></div>
-			</label>
+			<div class="checkbox-wrapper">
+				<input type="checkbox" #sidebarIconToggleCheckbox class="openSidebarMenu" id="openSidebarMenu" (click)="toggleMenu()">
+				<label for="openSidebarMenu" class="sidebarIconToggle">
+					<div class="spinner diagonal part-1"></div>
+					<div class="spinner horizontal"></div>
+					<div class="spinner diagonal part-2"></div>
+				</label>
+			</div>
 			<div id="sidebarMenu"  *ngIf="menuOpened">
 				  <div class="main-content-wrapper">
 					  <a [routerLink]="[ '/delivery-and-payment' ]" routerLinkActive="active">Delivery and payment</a>
@@ -57,8 +41,8 @@
 			</div>
 		</div>
 		<button class="header-callback">
-			<img class="header-callback-img" src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="we'll call u">
-			<span class="header-callback-text">WE'LL CALL YOU</span>
+			<img class="header-callback-img" src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg">
+			<p class="header-callback-text">WE'LL CALL YOU</p>
 		</button>
 		<div class="header-info">
 			<a class="header-phone" href="tel:0978780837">(+353) 087 65 41</a>
@@ -70,11 +54,39 @@
 			</div>
 		</div>
 	</div>
-	<div class="header-basket">
-			<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket" oncontextmenu="return false">
-			<span>0 грн</span>
+	<div class="header-basket" (click)="toggleBasket()">
+			<div class="basket-before">{{ totalAmount }}</div>
+			<img height="80%" src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket" oncontextmenu="return false">
+			<p class="total"><span>{{ totalPrice }}</span> грн</p>
 	</div>
+	<ng-container *ngIf="basketModal">
+			<div class="header-basket-modal">
+				<ul class="header-basket-modal-top">
+					<li *ngFor="let product of productsInBasket" class="basket-products-wrapper">
+						<div class="basket-products">
+							<div class="basket-img-wrapper">
+								<img [src]="product.imagePath" alt="">
+							</div>
+							<div class="title">{{ product.name }}</div>
+							<div class="amount">
+								<button><i class="fa-solid fa-minus fa-lg"></i></button>
+								<span>1</span>
+								<button><i class="fa-solid fa-plus fa-lg"></i></button>
+							</div>
+							<div class="price"><span>{{ product.price }}</span> грн</div>
+						</div>
+						<div class="basket-icon"><i class="fa-solid fa-trash fa-lg"></i></div>
+					</li>
+				</ul>
+				<div class="header-basket-modal-bottom">
+					<p class="total">Total:<span> {{ totalPrice }}</span> грн</p>
+					<button>PLACE YOUR ORDER</button>
+				</div>
+			</div>
+	</ng-container>
 </header>
+<div class="modal-wrapper" *ngIf="basketModal" (click)="toggleBasket()"></div>
+
 
 
 

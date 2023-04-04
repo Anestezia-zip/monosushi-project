@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/shared/services/product/product.service'
 })
 export class HomeComponent implements OnInit{
 
-  public adminProducts: IProductResponse[] = [];
+  public userProducts: IProductResponse[] = [];
   selectedTab = 1;
   
   selectTab(tabIndex: number) {
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit{
 
   loadProducts(): void {
     this.productService.getAll().subscribe(data => {
-      this.adminProducts = data;
+      this.userProducts = data;
     })
   }
  

@@ -54,17 +54,28 @@
 	</li>
 </ul>
 
-<div class="cards">
-	<div class="card" *ngFor="let product of adminProducts">
-		<img [src]="product.imagePath" alt="">
-		<div class="title">{{ product.name }}</div>
-		<div class="card-ingredients">
-			<span class="description">{{ product.ingredients }}</span><span class="weight">{{ product.weight }}</span>
-		</div>
-		<div>
-			<span class="price"><b>{{ product.price }}</b> грн </span>
-			<span class="amount"><button><i class="fa-solid fa-minus fa-lg"></i></button> 1<button><i class="fa-solid fa-plus fa-lg"></i></button></span>
-			<button>ORDER</button>
+<div class="cards-container">
+	<div class="cards">
+		<div class="card" *ngFor="let product of userProducts">
+		  <div class="img-wrap" [routerLink]="[ '/products/'+product.category.path, product.id ]">
+			<img [src]="product.imagePath" alt="">
+		  </div>
+		  <div class="card-content">
+			<div class="title" [routerLink]="[ '/products/'+product.category.path, product.id ]">{{ product.name }}</div>
+			<div class="card-description">
+			  <div class="description">{{ product.ingredients }}</div>
+			  <div class="weight">{{ product.weight }}</div>
+			</div>
+			<div class="card-footer">
+			  <div class="price">{{ product.price }} грн</div>
+			  <div class="amount">
+				<button><i class="fa-solid fa-minus fa-lg"></i></button>
+				<span>1</span>
+				<button><i class="fa-solid fa-plus fa-lg"></i></button>
+			  </div>
+			  <button class="order-btn">ORDER</button>
+			</div>
+		  </div>
 		</div>
 	</div>
 </div>

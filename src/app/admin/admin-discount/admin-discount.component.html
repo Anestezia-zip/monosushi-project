@@ -6,6 +6,7 @@
 			<input class="name-input" type="text" name="name" placeholder="*Name" formControlName="name">
 			<input type="text" name="title" placeholder="*Title" formControlName="title">
 		</div>
+		<input style="width: 465px;" type="text" name="path" placeholder="*Path" formControlName="path">
 		<input class="descr" type="text" name="description" placeholder="*Description" formControlName="description">
 		<ng-container *ngIf="!isUploaded">
 			<input type="file" name="" id="" (change)="upload($event)">
@@ -27,6 +28,7 @@
 			<tr>
 				<th>Date</th>
 				<th>Name</th>
+				<th>Path</th>
 				<th>Title</th>
 				<th>Description</th>
 				<th>Image</th>
@@ -37,6 +39,7 @@
 			<tr *ngFor="let discount of adminDiscounts">
 				<td>{{ discount.date }}</td>
 				<td>{{ discount.name }}</td>
+				<td>{{ discount.path }}</td>
 				<td>{{ discount.title }}</td>
 				<td class="table-descr">
 					{{ discount.description | slice:0:60 }} 

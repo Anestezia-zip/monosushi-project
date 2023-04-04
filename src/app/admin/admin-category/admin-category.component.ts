@@ -110,6 +110,8 @@ export class AdminCategoryComponent implements OnInit{
         imagePath: null
       });
     })
+    .catch(err => { console.log(err) });
+
   }
 
   valueByControl(control: string): string {
