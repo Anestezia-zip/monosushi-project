@@ -1,0 +1,81 @@
+
+@import '../../../shared/styles/variables';
+
+
+input:focus {
+	outline: 3px solid rgba(89, 172, 255, 0.3);
+    border-color: rgba(89, 172, 255, 0.6);
+}
+
+.info {
+	& h2 {
+		font-weight: bold;
+		font-size: 22px;
+		margin-bottom: 50px;
+
+		& span {
+			padding: 5px 12px;
+			background-color: $primary-color;
+			border-radius: 5px;
+			margin-right: 10px;
+			font-size: 20px;
+		}
+	}
+
+	&-form {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		margin-bottom: 50px;
+
+		& input {
+			font-size: 16px;
+			width: 556px;
+			padding: 20px;
+			border-radius: 8px;
+			border: 1px solid rgb(223, 218, 218);
+		}
+
+		& .small-inputs input{
+			width: 250px;
+			margin-right: 18px;
+		}
+	}
+
+	&-btns {
+		display: flex;
+		justify-content: space-between;
+		max-width: 600px;
+
+		& button {
+			font-size: 18px;
+			font-weight: bold;
+			padding: 16px 60px;
+			border-radius: 10px;
+			border: 2px solid $primary-color;
+			background-color: #fff;
+			margin-top: 20px;
+			transition: .2s all ease-in-out;
+		}
+	}
+
+	.add-btn {
+		&:hover {
+			background-color: $primary-color;
+			transition: .2s all ease-in-out;
+		}
+	}
+
+	.save-btn {
+		background-color: $primary-color;
+		&:hover {
+			background-color: #fff;
+			transition: .2s all ease-in-out;
+		}
+	}
+
+}
+
+
+
+

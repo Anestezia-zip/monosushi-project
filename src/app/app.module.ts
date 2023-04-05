@@ -28,6 +28,11 @@ import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 
 import { ToastrModule } from 'ngx-toastr';
+import { AuthorizationComponent } from './pages/authorization/authorization.component';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { CabinetInfoComponent } from './pages/cabinet/cabinet-info/cabinet-info.component';
+import { CabinetHistoryComponent } from './pages/cabinet/cabinet-history/cabinet-history.component';
+import { CabinetPassComponent } from './pages/cabinet/cabinet-pass/cabinet-pass.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,12 @@ import { ToastrModule } from 'ngx-toastr';
     AdminDiscountComponent,
     AdminCategoryComponent,
     AdminComponent,
-    AdminProductComponent
+    AdminProductComponent,
+    AuthorizationComponent,
+    CabinetComponent,
+    CabinetInfoComponent,
+    CabinetHistoryComponent,
+    CabinetPassComponent
   ],
   imports: [
     BrowserModule,

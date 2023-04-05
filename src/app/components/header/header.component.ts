@@ -1,5 +1,7 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { ROLE } from 'src/app/shared/constants/role.constant';
 import { ICategoryResponse, IProductResponse } from 'src/app/shared/interfaces/interfaces';
+import { AccountService } from 'src/app/shared/services/account/account.service';
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 
@@ -17,16 +19,22 @@ export class HeaderComponent {
   public userCategories: ICategoryResponse[] = [];
   public totalPrice = 0;
   public totalAmount = 0;
+  public isLogin = false;
+  public loginUrl = '';
+  public loginPage = '';
 
   constructor(
     private orderService: OrderService,
     private categoryService: CategoryService,
+    private accountService: AccountService
   ){}
 
   ngOnInit(): void {
     this.loadBasket();
-    this.loadCategories()
+    this.loadCategories();
     this.updateBasket();
+    this.checkUserLogin();
+    this.checkUpdatesUserLogin();
   }
 
   loadCategories(): void {
@@ -103,6 +111,29 @@ export class HeaderComponent {
   updateBasket(): void {
     this.orderService.changeBasket.subscribe(() => {
       this.loadBasket()
+    })
+  }
+  
+  checkUserLogin(): void {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
+    if(currentUser && currentUser.role === ROLE.ADMIN) {
+      this.isLogin = true;
+      this.loginUrl = 'admin';
+      this.loginPage = 'Admin';
+    } else if(currentUser && currentUser.role === ROLE.USER) {
+      this.isLogin = true;
+      this.loginUrl = 'cabinet';
+      this.loginPage = 'Cabinet';
+    } else {
+      this.isLogin = false;
+      this.loginUrl = '';
+      this.loginPage = '';
+    }
+  }
+
+  checkUpdatesUserLogin():void {
+    this.accountService.isUserLogin$.subscribe(() => {
+      this.checkUserLogin();
     })
   }
   

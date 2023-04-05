@@ -116,6 +116,20 @@
 		margin-top: 30px;
 	}
 
+	&-user-profile {
+		margin-left: 36px;
+		margin-top: 30px;
+	}
+
+	.admin {
+		margin-top: 25px; 
+		margin-left: 15px;
+		border: 2px solid lightgray;
+		height: 20px;
+		padding: 10px;
+		border-radius: 6px;
+	}
+
 	&-basket {
 		display: flex;
 		margin-right: 25px;

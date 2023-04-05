@@ -1,0 +1,20 @@
+
+<div class="container">
+	<section class="cabinet">
+		<div class="cabinet-tabs">
+			<div class="admin">
+				<div class="admin-menu">
+						<div class="admin-menu-btns">
+						  <button type="button" [routerLink]="[ 'info' ]" routerLinkActive="active">Personal information</button>
+						  <button type="button" [routerLink]="[ 'history' ]" routerLinkActive="active">Order history</button>
+						  <button type="button" [routerLink]="[ 'password' ]" routerLinkActive="active">Change password</button>
+						</div>
+						<button class="exit-btn" type="button" (click)="logOut()">EXIT</button>
+				</div>
+				<div class="admin-content">
+					<router-outlet></router-outlet>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

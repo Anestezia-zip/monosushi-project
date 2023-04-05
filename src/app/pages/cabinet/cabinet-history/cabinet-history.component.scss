@@ -1,0 +1,56 @@
+
+@import '../../../shared/styles/variables';
+
+.stroke {
+	width: 100%;
+	background: #fff;
+	margin-top: 50px;
+
+	& p {
+		font-size: 20px;
+	}
+
+	&-line {
+		display: inline-block;
+		font-size: 20px;
+	}
+
+	&-link {
+		display: block;
+		padding-bottom: 10px;
+		text-decoration: none;
+		color: $primary-color;
+		font-weight: 800;
+		position: relative;
+
+		&:hover {
+			transform: scale(1.1);
+			margin-left: 10px;
+
+			&:after {
+				width: 100%;
+			}
+		}
+
+		&:after{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			width: 0%;
+			content: '.';
+			color: transparent;
+			background: $primary-color;
+			height: 3px;
+			border-radius: 10px;
+		}
+	}
+}
+
+
+.stroke-link,
+.stroke-link:after,
+.stroke-link:before {
+	transition: all .5s;
+}  

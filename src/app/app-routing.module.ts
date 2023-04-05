@@ -15,6 +15,12 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
 import { DiscountInfoResolver } from './shared/services/discount/discount-info.resolver';
+import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { AuthorizationComponent } from './pages/authorization/authorization.component';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
+import { CabinetInfoComponent } from './pages/cabinet/cabinet-info/cabinet-info.component';
+import { CabinetHistoryComponent } from './pages/cabinet/cabinet-history/cabinet-history.component';
+import { CabinetPassComponent } from './pages/cabinet/cabinet-pass/cabinet-pass.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,8 +34,15 @@ const routes: Routes = [
   } },
   { path: 'delivery-and-payment', component: DeliveryAndPaymentComponent },
   { path: 'about-us', component: AboutUsComponent },
+  { path: 'auth', component: AuthorizationComponent },
+  { path: 'cabinet', component: CabinetComponent, canActivate: [AuthGuard], children: [
+    { path: 'info', component: CabinetInfoComponent },
+    { path: 'history', component: CabinetHistoryComponent },
+    { path: 'password', component: CabinetPassComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'info' }
+  ] },
 
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
     { path: 'discount', component: AdminDiscountComponent },
     { path: 'category', component: AdminCategoryComponent },
     { path: 'product', component: AdminProductComponent },

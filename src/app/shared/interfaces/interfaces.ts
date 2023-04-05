@@ -47,3 +47,10 @@ export interface IProductRequest {
 export interface IProductResponse extends IProductRequest {
 	id: number; 
 }
+
+// ------------------------------------------- Account Interface
+
+export interface ILogin {
+	email: string;
+	password: string;
+}

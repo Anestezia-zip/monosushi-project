@@ -48,10 +48,19 @@
 			<a class="header-phone" href="tel:0978780837">(+353) 087 65 41</a>
 			<div class="header-work-time">We are open <span>11am</span> to <span>10:30pm</span></div>
 		</div>
-		<div class="header-user" [routerLink]="[ '/admin' ]" routerLinkActive="active">
+		<div class="header-user" *ngIf="!isLogin" [routerLink]="[ '/auth' ]" routerLinkActive="active">
 			<div class="hover">
 				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
 			</div>
+		</div>
+		<div class="header-user-profile" *ngIf="isLogin">
+			<div class="hover">
+				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
+			</div>
+			
+		</div>
+		<div class="admin" *ngIf="isLogin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
+			<h2>{{ loginPage }}</h2>
 		</div>
 	</div>
 	<div class="header-basket" (click)="toggleBasket()">
