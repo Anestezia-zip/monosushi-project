@@ -6,7 +6,7 @@
 	height: 100%;
     background-color: rgba(0, 0, 0, 0.603);
 	position: absolute;
-	top: 95px;
+	top: 0;
 	animation: 0.4s forwards opasity;
 	backdrop-filter: blur(3px);
 	display: flex;
@@ -75,7 +75,7 @@
 
 	&-actions-btns {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
 		margin-top: 30px;
 	}
 }

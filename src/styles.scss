@@ -1,12 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'ngx-toastr/toastr';
+@import './app/shared/styles/theme-material';
 
-@import './app/shared/styles/base';
-@import './app/shared/styles/variables';
-@import './app/shared/styles/mixins';
 
 html, body {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
-    color: $body-text;
+    color: black;
 }
+

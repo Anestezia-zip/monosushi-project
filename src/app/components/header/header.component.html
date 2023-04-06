@@ -48,7 +48,12 @@
 			<a class="header-phone" href="tel:0978780837">(+353) 087 65 41</a>
 			<div class="header-work-time">We are open <span>11am</span> to <span>10:30pm</span></div>
 		</div>
-		<div class="header-user" *ngIf="!isLogin" [routerLink]="[ '/auth' ]" routerLinkActive="active">
+		<!-- <div class="header-user" *ngIf="!isLogin" [routerLink]="[ '/auth' ]" routerLinkActive="active">
+			<div class="hover">
+				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
+			</div>
+		</div> -->
+		<div class="header-user" *ngIf="!isLogin" (click)="openLoginDialog()">
 			<div class="hover">
 				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
 			</div>
@@ -59,9 +64,9 @@
 			</div>
 			
 		</div>
-		<div class="admin" *ngIf="isLogin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
+		<!-- <div class="admin" *ngIf="isLogin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
 			<h2>{{ loginPage }}</h2>
-		</div>
+		</div> -->
 	</div>
 	<div class="header-basket" (click)="toggleBasket()">
 			<div class="basket-before">{{ totalAmount }}</div>
@@ -70,7 +75,12 @@
 	</div>
 	<ng-container *ngIf="basketModal">
 			<div class="header-basket-modal">
-				<ul class="header-basket-modal-top">
+				<div class="empty-basket" *ngIf="productsInBasket.length == 0">
+					<img src="/assets/images/cart-empty-img.svg" alt="">
+					<p>Cart is empty</p>
+					<button>GO TO THE CATALOG</button>
+				</div>
+				<ul class="header-basket-modal-top" *ngIf="productsInBasket.length > 0">
 					<li *ngFor="let product of productsInBasket" class="basket-products-wrapper">
 						<div class="basket-products">
 							<div class="basket-img-wrapper">
@@ -89,7 +99,7 @@
 				</ul>
 				<div class="header-basket-modal-bottom">
 					<p class="total">Total:<span> {{ totalPrice }}</span> грн</p>
-					<button>PLACE YOUR ORDER</button>
+					<button [ngClass]="{'disabled': productsInBasket.length == 0}">PLACE YOUR ORDER</button>
 				</div>
 			</div>
 	</ng-container>

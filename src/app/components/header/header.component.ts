@@ -1,9 +1,11 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ROLE } from 'src/app/shared/constants/role.constant';
 import { ICategoryResponse, IProductResponse } from 'src/app/shared/interfaces/interfaces';
 import { AccountService } from 'src/app/shared/services/account/account.service';
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
+import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +28,8 @@ export class HeaderComponent {
   constructor(
     private orderService: OrderService,
     private categoryService: CategoryService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    public dialog: MatDialog
   ){}
 
   ngOnInit(): void {
@@ -49,32 +52,14 @@ export class HeaderComponent {
 
   toggleBasket() {
     const basketBg = document.querySelector('.header-basket') as HTMLDivElement;
-    const modalWrapper = document.querySelector('.modal-wrapper') as HTMLDivElement;
+    const body = document.querySelector('body') as HTMLBodyElement;
 
-    basketBg.classList.toggle('active');
     this.basketModal = !this.basketModal;
-    if(this.basketModal) {
-      document.body.style.overflow = "hidden";
-      modalWrapper.addEventListener('click', this.onClickInside);
-      window.addEventListener('click', this.onClickOutside);
-    } 
-    else {
-      document.body.style.overflow = "auto";
-      modalWrapper.removeEventListener('click', this.onClickInside);
-      window.removeEventListener('click', this.onClickOutside);
-    }
+    basketBg.classList.toggle('active');
+    body.classList.toggle('no-scroll');
+    // document.body.style.overflow = "hidden";
   }
 
-  onClickInside = (event: MouseEvent) => {
-    event.stopPropagation();
-  }
-  
-  onClickOutside = (event: MouseEvent) => {
-    const modalWrapper = document.querySelector('.modal-wrapper') as HTMLDivElement;
-    if (modalWrapper && !modalWrapper.contains(event.target as Node)) {
-      this.toggleBasket();
-    }
-  }
 
   @HostListener('document:click', ['$event'])
   closeMenu(event: MouseEvent) {
@@ -137,6 +122,15 @@ export class HeaderComponent {
     })
   }
   
+  openLoginDialog(): void {
+    this.dialog.open(AuthDialogComponent, {
+      backdropClass: 'dialog-back',
+      panelClass: 'auth-dialog',
+      autoFocus: false
+    }).afterClosed().subscribe(result => {
+
+    })
+  }
     
 
 }

@@ -1,0 +1,37 @@
+
+<div class="login" *ngIf="!loginModal">
+	<i class="fa-solid fa-xmark fa-xl" mat-dialog-close></i>
+	<div class="login-title">Log in to your account</div>
+	<form class="login-form" [formGroup]="authLoginForm">
+		<input type="text" class="login-email" placeholder="*Your email" formControlName="email">
+		<input type="text" class="login-pass" placeholder="*Password" formControlName="password">
+		<button class="login-btn" [disabled]="authLoginForm.invalid" (click)="loginUser()">CONFIRM</button>
+	</form>
+	<div class="login-actions-btns stroke">
+		<button class="forgotten-pass stroke-line"><a class="stroke-link">Forgot your password?</a></button>
+		<button class="sign-up stroke-line" type="submit" (click)="toggleModal()"><a class="stroke-link">Sign up</a></button>
+	</div>
+</div>
+
+
+<div class="login" *ngIf="loginModal">
+	<i class="fa-solid fa-xmark fa-xl" mat-dialog-close></i>
+	<div class="login-title">Sign up</div>
+	<form class="login-form" [formGroup]="authRegisterForm">
+		<div class="small-inputs">
+			<input type="text" placeholder="*Your name" formControlName="name">
+			<input type="text" placeholder="*Your surname" formControlName="surname">
+		</div>
+		<input type="text" class="login-input" placeholder="*Phone number" formControlName="phoneNumber">
+		<input type="email" class="login-email" placeholder="*Your email" formControlName="email">
+		<div class="small-inputs">
+			<input type="text" placeholder="*Password" formControlName="password">
+			<input type="text" placeholder="*Repeat password" formControlName="repeatPassword">
+		</div>
+		<button class="login-btn" [disabled]="authRegisterForm.invalid" (click)="registerUser()">SIGN UP</button>
+	</form>
+	<div class="login-actions-btns stroke">
+		<span>Already registered?</span>
+		<button class="sign-up stroke-line" type="submit" (click)="toggleModal()"><a class="stroke-link">Login</a></button>
+	</div>
+</div>

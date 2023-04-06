@@ -3,15 +3,15 @@
 <div class="modal-wrapper" >
 	<div class="login">
 		<i class="fa-solid fa-xmark fa-xl"></i>
-		<div class="login-title">Log in to your account</div>
-		<form class="login-form" [formGroup]="authForm" (ngSubmit)="login()">
+		<div class="login-title">Log in to admin account</div>
+		<form class="login-form" [formGroup]="authForm" (ngSubmit)="loginAdmin()">
 			<input type="text" class="login-email" placeholder="*Your email" formControlName="email">
 			<input type="text" class="login-pass" placeholder="*Password" formControlName="password">
 			<button class="login-btn">CONFIRM</button>
 		</form>
 		<div class="login-actions-btns">
 			<button class="forgotten-pass hover">Forgot your password?</button>
-			<button class="sign-up hover" type="submit" [disabled]="authForm.invalid">Sign up</button>
 		</div>
 	</div>
 </div>
+

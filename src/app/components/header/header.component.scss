@@ -3,6 +3,10 @@
 
 // ----------------------------- header -----------------------------
 
+.no-scroll {
+	overflow: hidden !important;
+}
+
 .header{
 	position: relative;
 	display: flex;
@@ -117,7 +121,7 @@
 	}
 
 	&-user-profile {
-		margin-left: 36px;
+		margin-left: 64px;
 		margin-top: 30px;
 	}
 
@@ -142,11 +146,9 @@
 
 		&.active {
 			background-color: white;
-			// transition: 0.3s all ease-in-out;
 			
 			& .basket-before {
 				background-color: $primary-color;
-				// transition: 0.3s all ease-in-out;
 			}
 		}
 
@@ -177,14 +179,14 @@
 
 .header-basket-modal {
 	width: 750px;
-	height: 250px;
+	min-height: 253px;
+	border-bottom-left-radius: 10px;
 	background-color: #fff;
 	position: absolute;
 	right: 0;
 	top: 94px;
 	z-index: 101;
 	animation: 0.4s forwards fadeInDown;
-
 
 	.basket-products-wrapper {
 		display: flex;
@@ -308,14 +310,54 @@
 			background-color: #fff;
 			border: 2px solid #fff;
 			border-radius: 6px;
-			transition: .3s all ease-in-out;
+			transition: .2s all ease-in-out;
 
 			&:hover {
 				background-color: transparent;
-				transition: .3s all ease-in-out;
+				transition: .2s all ease-in-out;
 			}
 		}
 
+	}
+
+	.disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		background-color: #cdcdcd;
+
+		&:hover {
+			background-color: #cdcdcd;
+		}
+	}
+	
+	.empty-basket {
+		padding: 16px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		& p {
+			font-weight: bold;
+			font-size: 20px;
+			margin-top: 14px;
+		}
+
+		& button {
+			margin-top: 20px;
+			border-radius: 10px;
+			border: 2px solid $primary-color;
+			background-color: $primary-color;
+			padding: 16px;
+			font-size: 20px;
+			font-weight: bold;
+			transition: .2s all ease-in-out;
+
+			&:hover {
+				background-color: #fff;
+				transition: .2s all ease-in-out;
+			}
+		}
 	}
 }
 
