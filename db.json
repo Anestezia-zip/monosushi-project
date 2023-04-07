@@ -164,14 +164,16 @@
       "id": 1,
       "email": "admin@gmail.com",
       "password": "qwerty123",
-      "fullName": "Petro Petriv",
+      "name": "Petro",
+      "surname": "Petriv",
       "role": "ADMIN"
     },
     {
       "id": 2,
       "email": "user@gmail.com",
       "password": "qwerty123",
-      "fullName": "Pavlo Pavliv",
+      "name": "Pavlo",
+      "surname": "Pavliv",
       "role": "USER"
     }
 

@@ -16,6 +16,7 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { ProductInfoResolver } from './shared/services/product/product-info.resolver';
 import { DiscountInfoResolver } from './shared/services/discount/discount-info.resolver';
 import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { AdminAuthGuard } from './shared/guards/admin-auth/admin-auth.guard';
 import { AuthorizationComponent } from './pages/authorization/authorization.component';
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
 import { CabinetInfoComponent } from './pages/cabinet/cabinet-info/cabinet-info.component';
@@ -42,7 +43,7 @@ const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'info' }
   ] },
 
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
+  { path: 'admin', component: AdminComponent, canActivate: [AdminAuthGuard], children: [
     { path: 'discount', component: AdminDiscountComponent },
     { path: 'category', component: AdminCategoryComponent },
     { path: 'product', component: AdminProductComponent },
