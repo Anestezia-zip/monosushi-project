@@ -37,6 +37,7 @@ import { CabinetHistoryComponent } from './pages/cabinet/cabinet-history/cabinet
 import { CabinetPassComponent } from './pages/cabinet/cabinet-pass/cabinet-pass.component';
 import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
 import { SharedModule } from './shared/shared.module';
+import { MatMenuComponent } from './components/auth-dialog/mat-menu/mat-menu.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { SharedModule } from './shared/shared.module';
     CabinetInfoComponent,
     CabinetHistoryComponent,
     CabinetPassComponent,
-    AuthDialogComponent
+    AuthDialogComponent,
+    MatMenuComponent
   ],
   imports: [
     BrowserModule,

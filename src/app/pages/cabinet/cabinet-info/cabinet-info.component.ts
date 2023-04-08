@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class CabinetInfoComponent {
 
+  // name!: string;
+  // email!: string;
+  // firstName!: string;
+  // lastName!: string;
+  // phoneNumber!: string;
+  
+  // constructor() { }
+  
+  // ngOnInit(): void {
+  //   const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);  
+  //   console.log(currentUser);
+      
+  //   Object.assign(this, currentUser);
+  // }
+  
 }

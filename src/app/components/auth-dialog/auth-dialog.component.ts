@@ -67,45 +67,47 @@ export class AuthDialogComponent implements OnInit{
     })
   }
 
- async login(email: string, password: string): Promise<void> {
-    const credential = await signInWithEmailAndPassword(this.auth, email, password);
-    docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
-      const currentUser = { ...user, uid: credential.user.uid };
-      localStorage.setItem('currentUser', JSON.stringify(currentUser));
-      if(user && user['role'] === ROLE.USER) {
-        this.router.navigate(['/cabinet']);
-      } else if(user && user['role'] === ROLE.ADMIN){
-        this.router.navigate(['/admin']);
-      }
-      this.accountService.isUserLogin$.next(true);
-    }, (e) => {
-      console.log('error', e);
+  async login(email: string, password: string): Promise<void> {
+      const credential = await signInWithEmailAndPassword(this.auth, email, password);
+      docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
+        const currentUser = { ...user, uid: credential.user.uid };
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        if(user && user['role'] === ROLE.USER) {
+          this.router.navigate(['/cabinet']);
+        } else if(user && user['role'] === ROLE.ADMIN){
+          this.router.navigate(['/admin']);
+        }
+        this.accountService.isUserLogin$.next(true);
+      }, (e) => {
+        console.log('error', e);
+      })
+  }
+
+  registerUser(): void {
+    const { email, password } = this.authRegisterForm.value;
+    this.emailSignUp(email, password).then(() => {
+      this.toastr.success('User successfully created');
+      this.isLogin = !this.isLogin;
+      this.dialogRef.close()
+      this.authRegisterForm.reset();
+    }).catch(e => {
+      this.toastr.error(e.message);
     })
- }
+  }
 
- registerUser(): void {
-  const { email, password } = this.authRegisterForm.value;
-  this.emailSignUp(email, password).then(() => {
-    this.toastr.success('User successfully created');
-    this.isLogin = !this.isLogin;
-    this.dialogRef.close()
-    this.authRegisterForm.reset();
-  }).catch(e => {
-    this.toastr.error(e.message);
-  })
- }
+  async emailSignUp(email: string, password: string): Promise<any> {
+    const credential = await createUserWithEmailAndPassword(this.auth, email, password);
+    const user = {
+      email: credential.user.email,
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      address: '',
+      orders: [],
+      role: 'USER'
+    };
+    setDoc(doc(this.afs, 'users', credential.user.uid), user)
+  }
 
- async emailSignUp(email: string, password: string): Promise<any> {
-  const credential = await createUserWithEmailAndPassword(this.auth, email, password);
-  const user = {
-    email: credential.user.email,
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    address: '',
-    orders: [],
-    role: 'USER'
-  };
-  setDoc(doc(this.afs, 'users', credential.user.uid), user)
- }
+  
 }

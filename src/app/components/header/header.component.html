@@ -58,11 +58,21 @@
 				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
 			</div>
 		</div>
-		<div class="header-user-profile" *ngIf="isLogin">
-			<div class="hover">
-				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
+		<div class="header-user-profile" *ngIf="isLogin" >
+			<div class="checkbox-wrapper">
+				<input type="checkbox" #sidebarImgToggleCheckbox class="openSidebarProfile" id="openSidebarProfile" (click)="toggleProfile()">
+				<label for="openSidebarProfile" class="sidebarImg">
+					<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
+				</label>
 			</div>
-			
+			<div id="sidebarProfile"  *ngIf="profileOpened">
+				  <div class="main-content-wrapper">
+					  <a [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">Personal information</a>
+					  <a [routerLink]="[ '/cabinet/history' ]" routerLinkActive="active">Order history</a>
+					  <a [routerLink]="[ '/cabinet/password' ]" routerLinkActive="active">Change password</a>
+					  <a (click)="logOut()">Exit</a>
+				  </div>
+			</div>
 		</div>
 		<!-- <div class="admin" *ngIf="isLogin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
 			<h2>{{ loginPage }}</h2>
@@ -88,11 +98,11 @@
 							</div>
 							<div class="title">{{ product.name }}</div>
 							<div class="amount">
-								<button><i class="fa-solid fa-minus fa-lg"></i></button>
-								<span>1</span>
-								<button><i class="fa-solid fa-plus fa-lg"></i></button>
+								<button (click)="productCount(product, false)"><i class="fa-solid fa-minus fa-lg"></i></button>
+								<span>{{ product.count }}</span>
+								<button (click)="productCount(product, true)"><i class="fa-solid fa-plus fa-lg"></i></button>
 							</div>
-							<div class="price"><span>{{ product.price }}</span> грн</div>
+							<div class="price"><span>{{ product.price * product.count }}</span> грн</div>
 						</div>
 						<div class="basket-icon"><i class="fa-solid fa-trash fa-lg"></i></div>
 					</li>
