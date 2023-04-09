@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MatMenuComponent } from './mat-menu.component';
+import { CallbackDialogComponent } from './callback-dialog.component';
 
-describe('MatMenuComponent', () => {
-  let component: MatMenuComponent;
-  let fixture: ComponentFixture<MatMenuComponent>;
+describe('CallbackDialogComponent', () => {
+  let component: CallbackDialogComponent;
+  let fixture: ComponentFixture<CallbackDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MatMenuComponent ]
+      declarations: [ CallbackDialogComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MatMenuComponent);
+    fixture = TestBed.createComponent(CallbackDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

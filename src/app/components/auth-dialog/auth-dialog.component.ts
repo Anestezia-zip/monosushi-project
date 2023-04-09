@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
 import { doc, docData , Firestore, setDoc } from '@angular/fire/firestore';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ROLE } from 'src/app/shared/constants/role.constant';
 import { AccountService } from 'src/app/shared/services/account/account.service';
+import { IRegister } from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -19,6 +20,8 @@ export class AuthDialogComponent implements OnInit{
   public authRegisterForm!: FormGroup;
   public isLogin = false;
   public loginModal = false;
+  public checkPassword = false;
+  private registerData!: IRegister;
 
   constructor(
     private auth: Auth,
@@ -31,17 +34,21 @@ export class AuthDialogComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.initAuthForm();
+    this.initLoginForm();
+    this.initRegisterForm();
   }
 
-  initAuthForm(): void {
+  initLoginForm(): void {
     this.authLoginForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]]
     });
+  }
+
+  initRegisterForm(): void {
     this.authRegisterForm = this.fb.group({
-      name: [null, [Validators.required]],
-      surname: [null, [Validators.required]],
+      firstName: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
       phoneNumber: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
@@ -49,15 +56,13 @@ export class AuthDialogComponent implements OnInit{
     });
   }
 
+
   toggleModal(): void {
     this.loginModal = !this.loginModal;
   }
 
-  
+
   loginUser(): void {
-    // this.dialogRef.close({
-    //   FormData: this.authForm.value
-    // })
     const { email, password } = this.authLoginForm.value;
     this.login(email, password).then(() => {
       this.toastr.success('User successfully login');
@@ -85,6 +90,7 @@ export class AuthDialogComponent implements OnInit{
 
   registerUser(): void {
     const { email, password } = this.authRegisterForm.value;
+    this.registerData = this.authRegisterForm.value;
     this.emailSignUp(email, password).then(() => {
       this.toastr.success('User successfully created');
       this.isLogin = !this.isLogin;
@@ -99,9 +105,9 @@ export class AuthDialogComponent implements OnInit{
     const credential = await createUserWithEmailAndPassword(this.auth, email, password);
     const user = {
       email: credential.user.email,
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
+      firstName: this.registerData.firstName,
+      lastName: this.registerData.lastName,
+      phoneNumber: this.registerData.phoneNumber,
       address: '',
       orders: [],
       role: 'USER'
@@ -109,5 +115,41 @@ export class AuthDialogComponent implements OnInit{
     setDoc(doc(this.afs, 'users', credential.user.uid), user)
   }
 
-  
+  checkConfirmedPassword(): void {
+    this.checkPassword = this.password.value === this.repeatPass.value;
+    if(this.password.value !== this.repeatPass.value) {
+      this.authRegisterForm.controls['repeatPassword'].setErrors({
+        matchError: 'Passwords do not match'
+      })
+    }
+  }
+
+  get password(): AbstractControl {
+    return this.authRegisterForm.controls['password'];
+  }
+
+  get repeatPass(): AbstractControl {
+    return this.authRegisterForm.controls['repeatPassword'];
+  }
+
+  checkVisibilityError(control: string, name: string): boolean | null {
+    return this.authRegisterForm.controls[control].errors?.[name]
+  }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

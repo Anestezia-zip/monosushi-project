@@ -1,5 +1,5 @@
 
-@import '../../shared/styles/variables';
+@import '../../../shared/styles/variables';
 
 .cards-container {
 	display: flex;
@@ -19,7 +19,7 @@
 	overflow: hidden;
 	transition: .3s all ease-in-out;
   }
-  
+
   .img-wrap {
 	display: flex;
 	justify-content: center;
@@ -28,13 +28,13 @@
 	width: 40%;
 	overflow: hidden;
   }
-  
+
   .img-wrap img {
 	max-height: 100%;
 	max-width: 100%;
 	object-fit: cover;
   }
-  
+
   .card-content {
 	display: flex;
 	flex-direction: column;
@@ -45,7 +45,7 @@
 	margin-left: 80px;
 	text-align: left;
   }
-  
+
   .title {
 	max-width: 400px;
 	font-size: 38px;
@@ -55,22 +55,22 @@
 	margin-bottom: 40px;
 	transition: .2s ease-in-out;
   }
-  
+
   .description {
 	text-align: left;
 	margin-bottom: 20px;
 
 	& span {
 		color: $primary-color;
-		font-weight: bold;	
+		font-weight: bold;
 		font-size: 20px;
 	}
   }
-  
+
   .card-description {
 	font-size: 18px;
   }
-  
+
   .weight {
 	min-width: 54px;
 
@@ -80,7 +80,7 @@
 		font-size: 20px;
 	}
   }
-  
+
   .card-footer {
 	display: flex;
 	gap: 16px;
@@ -89,13 +89,13 @@
 	width: 80%;
 	margin-top: 40px;
   }
-  
+
   .price {
 	font-size: 20px;
 	font-weight: bold;
 	min-width: 80px;
   }
-  
+
   .amount {
 	display: flex;
 	justify-content: center;
@@ -111,7 +111,7 @@
 		border: none;
 	}
   }
-  
+
   .amount button {
 	padding: 5px;
 	border-radius: 6px;
@@ -128,7 +128,7 @@
 	}
 
   }
-  
+
    .order-btn {
 		background-color: $primary-color;
 		border-radius: 6px;
@@ -143,7 +143,7 @@
 			background-color: #fff;
 		}
 	}
-  
+
 .discount-nav {
 	margin-top: 25px;
 	margin-left: 60px;

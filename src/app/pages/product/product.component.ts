@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit, OnDestroy{
   public userProducts: IProductResponse[] = [];
   private evenSubscription!: Subscription;
   selectedTab = 1;
-  
+
   selectTab(tabIndex: number) {
     this.selectedTab = tabIndex;
   }
@@ -32,6 +32,7 @@ export class ProductComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(): void {
+
   }
 
   loadProducts(): void {
@@ -44,6 +45,8 @@ export class ProductComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.evenSubscription.unsubscribe();
   }
- 
-  
+
+
+
+
 }

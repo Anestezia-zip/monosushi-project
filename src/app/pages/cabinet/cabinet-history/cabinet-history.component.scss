@@ -1,6 +1,27 @@
 
 @import '../../../shared/styles/variables';
 
+table {
+  font-size: 17px;
+}
+
+thead th{
+  min-width: 150px;
+  text-align: left;
+  padding: 18px 0;
+  padding-right: 20px;
+}
+
+tbody tr {
+  border-top: 2px solid $primary-color;
+  border-bottom: 2px solid $primary-color;
+}
+
+tbody td {
+  padding: 20px 0;
+  padding-right: 20px;
+}
+
 .stroke {
 	width: 100%;
 	background: #fff;
@@ -54,4 +75,4 @@
 .stroke-link:after,
 .stroke-link:before {
 	transition: all .5s;
-}  
+}

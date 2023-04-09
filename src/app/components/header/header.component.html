@@ -15,7 +15,7 @@
 						</a>
 					</li>
 					<li class="menu-item" *ngFor="let category of userCategories">
-						<a class="hover" [routerLink]="[ '/products/'+category.path ]">
+						<a class="hover" [routerLink]="[ '/products/'+category.path ]" routerLinkActive="active">
 							<img [src]="category.imagePath" alt="rolls">
 							<span>{{ category.name }}</span>
 						</a>
@@ -40,7 +40,7 @@
 				  </div>
 			</div>
 		</div>
-		<button class="header-callback">
+		<button class="header-callback" (click)="openCallbackDialog()">
 			<img class="header-callback-img" src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg">
 			<p class="header-callback-text">WE'LL CALL YOU</p>
 		</button>
@@ -53,7 +53,7 @@
 				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
 			</div>
 		</div> -->
-		<div class="header-user" *ngIf="!isLogin" (click)="openLoginDialog()">
+		<div class="header-user" *ngIf="!isLogin && !isAdmin" (click)="openLoginDialog()">
 			<div class="hover">
 				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
 			</div>
@@ -74,9 +74,9 @@
 				  </div>
 			</div>
 		</div>
-		<!-- <div class="admin" *ngIf="isLogin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
-			<h2>{{ loginPage }}</h2>
-		</div> -->
+		<div class="admin" *ngIf="isAdmin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
+			<h2>Admin</h2>
+		</div>
 	</div>
 	<div class="header-basket" (click)="toggleBasket()">
 			<div class="basket-before">{{ totalAmount }}</div>
@@ -91,7 +91,7 @@
 					<button>GO TO THE CATALOG</button>
 				</div>
 				<ul class="header-basket-modal-top" *ngIf="productsInBasket.length > 0">
-					<li *ngFor="let product of productsInBasket" class="basket-products-wrapper">
+					<li *ngFor="let product of productsInBasket; index as i" class="basket-products-wrapper">
 						<div class="basket-products">
 							<div class="basket-img-wrapper">
 								<img [src]="product.imagePath" alt="">
@@ -104,7 +104,7 @@
 							</div>
 							<div class="price"><span>{{ product.price * product.count }}</span> грн</div>
 						</div>
-						<div class="basket-icon"><i class="fa-solid fa-trash fa-lg"></i></div>
+						<div class="basket-icon" (click)="deleteProduct(i)"><i class="fa-solid fa-trash fa-lg"></i></div>
 					</li>
 				</ul>
 				<div class="header-basket-modal-bottom">

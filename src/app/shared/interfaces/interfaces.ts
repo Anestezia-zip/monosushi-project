@@ -45,7 +45,7 @@ export interface IProductRequest {
 }
 
 export interface IProductResponse extends IProductRequest {
-	id: number; 
+	id: number;
 }
 
 // ------------------------------------------- Account Interface
@@ -53,4 +53,15 @@ export interface IProductResponse extends IProductRequest {
 export interface ILogin {
 	email: string;
 	password: string;
+}
+
+// ------------------------------------------- Register Interface
+
+export interface IRegister {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  repeatPassword?: string;
 }

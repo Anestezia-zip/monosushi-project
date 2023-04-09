@@ -1,27 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';		
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-import { HomeComponent } from './pages/home/home.component';
-import { DiscountComponent } from './pages/discount/discount.component';
-import { DiscountInfoComponent } from './pages/discount-info/discount-info.component';
-import { ProductComponent } from './pages/product/product.component';
-import { ProductInfoComponent } from './pages/product-info/product-info.component';
-import { DeliveryAndPaymentComponent } from './pages/delivery-and-payment/delivery-and-payment.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-
-import { AdminComponent } from './admin/admin.component';
-import { AdminDiscountComponent } from './admin/admin-discount/admin-discount.component';
-import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
-import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -30,14 +14,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
 import { ToastrModule } from 'ngx-toastr';
-import { AuthorizationComponent } from './pages/authorization/authorization.component';
-import { CabinetComponent } from './pages/cabinet/cabinet.component';
-import { CabinetInfoComponent } from './pages/cabinet/cabinet-info/cabinet-info.component';
-import { CabinetHistoryComponent } from './pages/cabinet/cabinet-history/cabinet-history.component';
-import { CabinetPassComponent } from './pages/cabinet/cabinet-pass/cabinet-pass.component';
 import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
 import { SharedModule } from './shared/shared.module';
-import { MatMenuComponent } from './components/auth-dialog/mat-menu/mat-menu.component';
+import { CallbackDialogComponent } from './components/callback-dialog/callback-dialog.component';
 
 
 @NgModule({
@@ -45,30 +24,11 @@ import { MatMenuComponent } from './components/auth-dialog/mat-menu/mat-menu.com
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    DiscountComponent,
-    DiscountInfoComponent,
-    ProductComponent,
-    ProductInfoComponent,
-    DeliveryAndPaymentComponent,
-    AboutUsComponent,
-    AdminDiscountComponent,
-    AdminCategoryComponent,
-    AdminComponent,
-    AdminProductComponent,
-    AuthorizationComponent,
-    CabinetComponent,
-    CabinetInfoComponent,
-    CabinetHistoryComponent,
-    CabinetPassComponent,
     AuthDialogComponent,
-    MatMenuComponent
+    CallbackDialogComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

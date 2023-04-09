@@ -7,6 +7,7 @@ import { AccountService } from 'src/app/shared/services/account/account.service'
 import { CategoryService } from 'src/app/shared/services/category/category.service';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { AuthDialogComponent } from '../auth-dialog/auth-dialog.component';
+import {CallbackDialogComponent} from "../callback-dialog/callback-dialog.component";
 
 @Component({
   selector: 'app-header',
@@ -25,8 +26,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public totalPrice = 0;
   public totalAmount = 0;
   public isLogin = false;
+  public isAdmin = false;
   public loginUrl = '';
-  public loginPage = '';
 
   public basketBg!: HTMLDivElement;
   public modalWrapper!: HTMLDivElement;
@@ -74,8 +75,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.profileOpened = !this.profileOpened;
   }
 
-  // -------------------------------------- Basket
-
   toggleBasket() {
     this.basketBg = document.querySelector('.header-basket') as HTMLDivElement;
     this.modalWrapper = document.querySelector('.modal-wrapper') as HTMLDivElement;
@@ -86,7 +85,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   onClickInside = (event: MouseEvent) => {
     event.stopPropagation();
   }
-  
+
   onClickOutside = (event: MouseEvent) => {
     const modalWrapper = document.querySelector('.modal-wrapper') as HTMLDivElement;
     if (modalWrapper && !modalWrapper.contains(event.target as Node)) {
@@ -107,6 +106,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.sidebarIconToggleCheckbox.nativeElement.checked = false;
     }
   }
+
+  // -------------------------------------- Basket
 
   get productsInBasket(): Array<IProductResponse> {
     return this.basket;
@@ -137,24 +138,31 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   productCount(product: IProductResponse, value: boolean): void {
     if(value) ++product.count;
     else if(!value && product.count > 1) --product.count;
+    localStorage.setItem('basket', JSON.stringify(this.basket));
+    this.getTotalPrice();
+    this.getTotalAmount();
+  }
+
+  deleteProduct(index: number) {
+    this.basket.splice(index, 1);
+    localStorage.setItem('basket', JSON.stringify(this.basket));
+    this.getTotalPrice();
+    this.getTotalAmount();
   }
 
   // -------------------------------------- Login
-  
+
   checkUserLogin(): void {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') as string);
     if(currentUser && currentUser.role === ROLE.ADMIN) {
-      this.isLogin = true;
       this.loginUrl = 'admin';
-      this.loginPage = 'Admin';
+      this.isAdmin = true;
     } else if(currentUser && currentUser.role === ROLE.USER) {
       this.isLogin = true;
       this.loginUrl = 'cabinet';
-      this.loginPage = 'Cabinet';
     } else {
       this.isLogin = false;
       this.loginUrl = '';
-      this.loginPage = '';
     }
   }
 
@@ -163,18 +171,23 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.checkUserLogin();
     })
   }
-  
+
   openLoginDialog(): void {
     this.dialog.open(AuthDialogComponent, {
       backdropClass: 'dialog-back',
       panelClass: 'auth-dialog',
       autoFocus: false
-    }).afterClosed().subscribe(result => {
-      console.log(result);
-
-    })
+    }).afterClosed().subscribe(result => {})
   }
-    
+
+  openCallbackDialog(): void {
+    this.dialog.open(CallbackDialogComponent, {
+      backdropClass: 'dialog-back',
+      panelClass: 'auth-dialog',
+      autoFocus: false
+    }).afterClosed().subscribe(result => {})
+  }
+
   logOut():void {
     this.router.navigate(['/']);
     localStorage.removeItem('currentUser');
