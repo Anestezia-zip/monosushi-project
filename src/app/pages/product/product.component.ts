@@ -31,9 +31,7 @@ export class ProductComponent implements OnInit, OnDestroy{
     })
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   loadProducts(): void {
     const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string

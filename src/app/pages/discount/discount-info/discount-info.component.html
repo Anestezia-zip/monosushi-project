@@ -4,13 +4,13 @@
 	<span class="nav-circle">•</span>
 	<span class="nav-text" [routerLink]="[ '/discounts' ]" routerLinkActive="active">Discounts</span>
 	<span class="nav-circle">•</span>
-	<span class="nav-text">{{ currentDiscount.name }}</span>
+	<span class="nav-text">{{ currentDiscount?.name }}</span>
 </div>
 
 <div class="container">
 	<p class="line"></p>
-	<h1>{{ currentDiscount.title }}</h1>	
+	<h1>{{ currentDiscount?.title }}</h1>
 	<ul>
-		<li>{{ currentDiscount.description }}</li>
+		<li>{{ currentDiscount?.description }}</li>
 	</ul>
 </div>

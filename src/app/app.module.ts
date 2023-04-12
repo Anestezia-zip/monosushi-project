@@ -17,6 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
 import { SharedModule } from './shared/shared.module';
 import { CallbackDialogComponent } from './components/callback-dialog/callback-dialog.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CallbackDialogComponent } from './components/callback-dialog/callback-d
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     ToastrModule.forRoot(),
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

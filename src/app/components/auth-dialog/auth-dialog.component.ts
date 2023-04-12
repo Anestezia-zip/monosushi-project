@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { doc, docData , Firestore, setDoc } from '@angular/fire/firestore';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -56,11 +56,9 @@ export class AuthDialogComponent implements OnInit{
     });
   }
 
-
   toggleModal(): void {
     this.loginModal = !this.loginModal;
   }
-
 
   loginUser(): void {
     const { email, password } = this.authLoginForm.value;

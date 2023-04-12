@@ -42,6 +42,7 @@ export class AdminProductComponent implements OnInit{
     this.productForm = this.fb.group({
       category: [null, Validators.required],
       name: [null, Validators.required],
+      description: [null],
       ingredients: [null, Validators.required],
       path: [null, Validators.required],
       weight: [null, Validators.required],
@@ -123,7 +124,7 @@ export class AdminProductComponent implements OnInit{
       })
         .catch(err => {
           console.error(err);
-        })  
+        })
   }
 
   deleteImage(): void {

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
-import { doc, docData , Firestore, setDoc } from '@angular/fire/firestore';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { doc, docData , Firestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -33,7 +33,7 @@ export class AuthorizationComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.loginSubscription.unsubscribe();
+    if(this.loginSubscription) this.loginSubscription.unsubscribe();
   }
 
   initAuthForm(): void {
@@ -67,11 +67,5 @@ export class AuthorizationComponent implements OnInit, OnDestroy{
       console.log('error', e);
     })
  }
-
-
-
-
-
-
 
 }

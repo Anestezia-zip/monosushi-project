@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CabinetHistoryComponent } from './cabinet-history.component';
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 
 describe('CabinetHistoryComponent', () => {
   let component: CabinetHistoryComponent;
@@ -8,7 +9,8 @@ describe('CabinetHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CabinetHistoryComponent ]
+      declarations: [ CabinetHistoryComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
 

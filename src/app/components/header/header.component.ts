@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public menuOpened = false;
   public profileOpened = false;
   public basketModal = false;
-  private basket: Array<IProductResponse> = [];
+  public basket: Array<IProductResponse> = [];
   public userCategories: ICategoryResponse[] = [];
   public totalPrice = 0;
   public totalAmount = 0;

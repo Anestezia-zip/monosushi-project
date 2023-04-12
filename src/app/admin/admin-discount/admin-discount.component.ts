@@ -14,7 +14,6 @@ export class AdminDiscountComponent implements OnInit {
   public adminDiscounts: IDiscountResponse[] = [];
   public discountForm!: FormGroup;
   public currentDate = new Date().toLocaleString('ru-RU', {month: 'numeric', year: 'numeric'});
-  // public imagePath = 'https://monosushi.com.ua/wp-content/uploads/2022/07/imgonline-com-ua-compressed-ajbic74qfau00-scaled-697x379.jpg';
   public discountsToggle = false;
   public editStatus = false;
   public editID!: number;
@@ -102,7 +101,7 @@ export class AdminDiscountComponent implements OnInit {
       })
         .catch(err => {
           console.error(err);
-        })    
+        })
   }
 
   async uploadFile(folder: string, name: string, file: File | null): Promise<string> {

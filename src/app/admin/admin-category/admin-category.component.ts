@@ -98,7 +98,7 @@ export class AdminCategoryComponent implements OnInit{
       })
         .catch(err => {
           console.error(err);
-        })    
+        })
   }
 
   deleteImage(): void {
