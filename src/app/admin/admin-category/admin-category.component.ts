@@ -14,7 +14,7 @@ export class AdminCategoryComponent implements OnInit{
   public adminCategories: ICategoryResponse[] = [];
   public categoryForm!: FormGroup;
   public editStatus = false;
-  public currCategoryID = 0;
+  public currCategoryID!: string;
   public uploadPercent!: number;
   public isUploaded = false;
   public categoryToggle = false;
@@ -40,8 +40,12 @@ export class AdminCategoryComponent implements OnInit{
   }
 
   loadCategories(): void {
-    this.categoryService.getAll().subscribe(data => {
-      this.adminCategories = data;
+    // this.categoryService.getAll().subscribe(data => {
+    //   this.adminCategories = data;
+    // })
+
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategories = data as ICategoryResponse[];
     })
   }
 
@@ -51,12 +55,21 @@ export class AdminCategoryComponent implements OnInit{
 
   saveCategory(): void {
     if(this.editStatus) {
-      this.categoryService.update(this.categoryForm.value, this.currCategoryID).subscribe(() => {
+      // this.categoryService.update(this.categoryForm.value, this.currCategoryID).subscribe(() => {
+      //   this.loadCategories();
+      //   this.toastr.success('Category successfully updated');
+      // })
+
+      this.categoryService.updateFirebase(this.categoryForm.value, this.currCategoryID as string).then(() => {
         this.loadCategories();
         this.toastr.success('Category successfully updated');
       })
     } else {
-      this.categoryService.create(this.categoryForm.value).subscribe(() => {
+      // this.categoryService.create(this.categoryForm.value).subscribe(() => {
+      //   this.loadCategories();
+      //   this.toastr.success('Category successfully created');
+      // })
+      this.categoryService.createFirebase(this.categoryForm.value).then(() => {
         this.loadCategories();
         this.toastr.success('Category successfully created');
       })
@@ -75,13 +88,22 @@ export class AdminCategoryComponent implements OnInit{
       imagePath: category.imagePath
     })
     this.editStatus = true;
-    this.currCategoryID = category.id;
+    this.currCategoryID = category.id.toString();
     this.isUploaded = true;
     this.toggleCategory();
   }
 
+    // this.categoryService.getOneFirebase(category.id as string).subscribe(data => {
+    // console.log(data, 'firebase data')
+    // })
+
   deleteCategory(category: ICategoryResponse): void {
-    this.categoryService.delete(category.id).subscribe(() => {
+    // this.categoryService.delete(category.id as number).subscribe(() => {
+    //   this.loadCategories();
+    //   this.toastr.success('Category successfully deleted');
+    // })
+
+    this.categoryService.deleteFirebase(category.id as string).then(() => {
       this.loadCategories();
       this.toastr.success('Category successfully deleted');
     })

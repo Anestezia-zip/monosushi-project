@@ -19,16 +19,13 @@ export class DiscountInfoComponent {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(response => {
-      this.currentDiscount = response['productInfo'];
-    });   
     this.loadDiscounts()
   }
 
   loadDiscounts(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'))
-    this.discountService.getOne(id).subscribe(data => {
-      this.currentDiscount = data;
+    const id = this.activatedRoute.snapshot.paramMap.get('id')
+    this.discountService.getOneFirebase(id as string).subscribe(data => {
+      this.currentDiscount = data as IDiscountResponse;
     })
   }
 

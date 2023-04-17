@@ -14,16 +14,16 @@ export class DiscountComponent implements OnInit{
   constructor(
     private discountService: DiscountService,
   ){}
-  
+
   ngOnInit(): void {
     this.loadDiscounts();
   }
 
   loadDiscounts(): void {
-    this.discountService.getAll().subscribe(data => {
-      this.userDiscounts = data;
+    this.discountService.getAllFirebase().subscribe(data => {
+      this.userDiscounts = data as IDiscountResponse[];
     })
   }
- 
+
 
 }

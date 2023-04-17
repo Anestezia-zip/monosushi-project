@@ -11,7 +11,7 @@ export interface IDiscountRequest {
 }
 
 export interface IDiscountResponse extends IDiscountRequest {
-    id: number;
+    id: string;
 }
 
 // ------------------------------------------- Category Interface
@@ -23,7 +23,7 @@ export interface ICategoryRequest {
 }
 
 export interface ICategoryResponse extends ICategoryRequest {
-	id: number;
+	id: string;
 }
 
 // ------------------------------------------- Product Interface
@@ -41,7 +41,7 @@ export interface IProductRequest {
 }
 
 export interface IProductResponse extends IProductRequest {
-	id: number;
+	id: string;
 }
 
 // ------------------------------------------- Account Interface
@@ -60,4 +60,15 @@ export interface IRegister {
   email: string;
   password: string;
   repeatPassword?: string;
+}
+
+// ------------------------------------------- User Interface
+
+export interface IUser {
+  address: string,
+  email: string,
+  firstName: string,
+  lastName: string,
+  phoneNumber: string,
+  role: string
 }

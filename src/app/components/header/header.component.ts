@@ -62,8 +62,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   loadCategories(): void {
-    this.categoryService.getAll().subscribe(data => {
-      this.userCategories = data;
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.userCategories = data as ICategoryResponse[];
     })
   }
 
@@ -75,11 +75,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.profileOpened = !this.profileOpened;
   }
 
+
   toggleBasket() {
     this.basketBg = document.querySelector('.header-basket') as HTMLDivElement;
     this.modalWrapper = document.querySelector('.modal-wrapper') as HTMLDivElement;
     this.basketBg.classList.toggle('active');
     this.basketModal = !this.basketModal;
+    if(this.basketModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   }
 
   onClickInside = (event: MouseEvent) => {
@@ -168,6 +174,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   checkUpdatesUserLogin():void {
     this.accountService.isUserLogin$.subscribe(() => {
+      this.isAdmin = false;
       this.checkUserLogin();
     })
   }

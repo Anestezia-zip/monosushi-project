@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit, OnDestroy{
 
   public userProducts: IProductResponse[] = [];
   private evenSubscription!: Subscription;
+  public currentCategoryName!: string;
   selectedTab = 1;
 
   selectTab(tabIndex: number) {
@@ -36,7 +37,8 @@ export class ProductComponent implements OnInit, OnDestroy{
   loadProducts(): void {
     const categoryName = this.activatedRoute.snapshot.paramMap.get('category') as string
     this.productService.getAllByCategory(categoryName).subscribe(data => {
-      this.userProducts = data;
+      this.userProducts = data as IProductResponse[];
+      this.currentCategoryName = this.userProducts[0].category.name
     })
   }
 

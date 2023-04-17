@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit{
 
   public userProducts: IProductResponse[] = [];
   selectedTab = 1;
-  
+
   selectTab(tabIndex: number) {
     this.selectedTab = tabIndex;
   }
@@ -25,10 +25,10 @@ export class HomeComponent implements OnInit{
   }
 
   loadProducts(): void {
-    this.productService.getAll().subscribe(data => {
-      this.userProducts = data;
+    this.productService.getAllFirebase().subscribe(data => {
+      this.userProducts = data as IProductResponse[];
     })
   }
- 
+
 }
 

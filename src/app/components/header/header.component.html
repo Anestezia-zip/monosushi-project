@@ -5,79 +5,78 @@
 		<div class="header-logo" [routerLink]="[ '/' ]" routerLinkActive="active">
 			<img src="https://monosushi.com.ua/wp-content/uploads/2021/06/logo.svg" alt="">
 		</div>
-		<div class="header-nav-wrapper">
-			<nav class="menu">
-				<ul class="menu-nav">
-					<li class="menu-item">
-						<a class="hover" [routerLink]="[ '/discounts' ]" routerLinkActive="active">
-							<img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="discounts">
-							<span>Discounts</span>
-						</a>
-					</li>
-					<li class="menu-item" *ngFor="let category of userCategories">
-						<a class="hover" [routerLink]="[ '/products/'+category.path ]" routerLinkActive="active">
-							<img [src]="category.imagePath" alt="rolls">
-							<span>{{ category.name }}</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="dropdown-menu">
-			<div class="checkbox-wrapper">
-				<input type="checkbox" #sidebarIconToggleCheckbox class="openSidebarMenu" id="openSidebarMenu" (click)="toggleMenu()">
-				<label for="openSidebarMenu" class="sidebarIconToggle">
-					<div class="spinner diagonal part-1"></div>
-					<div class="spinner horizontal"></div>
-					<div class="spinner diagonal part-2"></div>
-				</label>
-			</div>
-			<div id="sidebarMenu"  *ngIf="menuOpened">
-				  <div class="main-content-wrapper">
-					  <a [routerLink]="[ '/delivery-and-payment' ]" routerLinkActive="active">Delivery and payment</a>
-					  <a [routerLink]="[ '/about-us' ]" routerLinkActive="active">About us</a>
-					  <a [routerLink]="[ '/discounts' ]" routerLinkActive="active">Discounts</a>
-				  </div>
-			</div>
-		</div>
-		<button class="header-callback" (click)="openCallbackDialog()">
-			<img class="header-callback-img" src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg">
-			<p class="header-callback-text">WE'LL CALL YOU</p>
-		</button>
-		<div class="header-info">
-			<a class="header-phone" href="tel:0978780837">(+353) 087 65 41</a>
-			<div class="header-work-time">We are open <span>11am</span> to <span>10:30pm</span></div>
-		</div>
-		<!-- <div class="header-user" *ngIf="!isLogin" [routerLink]="[ '/auth' ]" routerLinkActive="active">
-			<div class="hover">
-				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
-			</div>
-		</div> -->
-		<div class="header-user" *ngIf="!isLogin && !isAdmin" (click)="openLoginDialog()">
-			<div class="hover">
-				<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
-			</div>
-		</div>
-		<div class="header-user-profile" *ngIf="isLogin" >
-			<div class="checkbox-wrapper">
-				<input type="checkbox" #sidebarImgToggleCheckbox class="openSidebarProfile" id="openSidebarProfile" (click)="toggleProfile()">
-				<label for="openSidebarProfile" class="sidebarImg">
-					<img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
-				</label>
-			</div>
-			<div id="sidebarProfile"  *ngIf="profileOpened">
-				  <div class="main-content-wrapper">
-					  <a [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">Personal information</a>
-					  <a [routerLink]="[ '/cabinet/history' ]" routerLinkActive="active">Order history</a>
-					  <a [routerLink]="[ '/cabinet/password' ]" routerLinkActive="active">Change password</a>
-					  <a (click)="logOut()">Exit</a>
-				  </div>
-			</div>
-		</div>
-		<div class="admin" *ngIf="isAdmin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
-			<h2>Admin</h2>
-		</div>
+    <div class="header-nav-wrapper">
+      <nav class="menu">
+        <ul class="menu-nav">
+          <li class="menu-item">
+            <a class="hover" [routerLink]="[ '/discounts' ]" routerLinkActive="active">
+              <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="discounts">
+              <span>Discounts</span>
+            </a>
+          </li>
+          <li class="menu-item" *ngFor="let category of userCategories">
+            <a class="hover" [routerLink]="[ '/products/'+category.path ]" routerLinkActive="active">
+              <img [src]="category.imagePath" alt="rolls">
+              <span>{{ category.name }}</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header-tablet-wrapper">
+      <div class="dropdown-menu">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" #sidebarIconToggleCheckbox class="openSidebarMenu" id="openSidebarMenu" (click)="toggleMenu()">
+          <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+          </label>
+        </div>
+        <div id="sidebarMenu"  *ngIf="menuOpened">
+          <div class="main-content-wrapper">
+            <a [routerLink]="[ '/delivery-and-payment' ]" routerLinkActive="active">Delivery and payment</a>
+            <a [routerLink]="[ '/about-us' ]" routerLinkActive="active">About us</a>
+            <a [routerLink]="[ '/discounts' ]" routerLinkActive="active">Discounts</a>
+          </div>
+        </div>
+      </div>
+      <button class="header-callback" (click)="openCallbackDialog()">
+        <img class="header-callback-img" src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg">
+        <p class="header-callback-text">WE'LL CALL YOU</p>
+      </button>
+      <div class="header-info">
+        <a class="header-phone" href="tel:0978780837">(+353) 087 65 41</a>
+        <div class="header-work-time">We are open <span>11am</span> to <span>10:30pm</span></div>
+      </div>
+      <div class="header-user" *ngIf="!isLogin && !isAdmin" (click)="openLoginDialog()">
+        <div class="hover">
+          <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
+        </div>
+      </div>
+      <div class="header-user-profile" *ngIf="isLogin" >
+        <div class="checkbox-wrapper">
+          <input type="checkbox" #sidebarImgToggleCheckbox class="openSidebarProfile" id="openSidebarProfile" (click)="toggleProfile()">
+          <label for="openSidebarProfile" class="sidebarImg">
+            <img src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" >
+          </label>
+        </div>
+        <div id="sidebarProfile"  *ngIf="profileOpened">
+          <div class="main-content-wrapper">
+            <a [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">Personal information</a>
+            <a [routerLink]="[ '/cabinet/history' ]" routerLinkActive="active">Order history</a>
+            <a [routerLink]="[ '/cabinet/password' ]" routerLinkActive="active">Change password</a>
+            <a (click)="logOut()">Exit</a>
+          </div>
+        </div>
+      </div>
+      <div class="admin" *ngIf="isAdmin" [routerLink]="[ '/'+loginUrl ]" routerLinkActive="active">
+        <h2>Admin</h2>
+      </div>
+    </div>
 	</div>
+
 	<div class="header-basket" (click)="toggleBasket()">
 			<div class="basket-before">{{ totalAmount }}</div>
 			<img height="80%" src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket" oncontextmenu="return false">
@@ -115,6 +114,7 @@
 	</ng-container>
 </header>
 <div class="modal-wrapper" *ngIf="basketModal" (click)="toggleBasket()"></div>
+
 
 
 

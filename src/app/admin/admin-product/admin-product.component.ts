@@ -18,11 +18,9 @@ export class AdminProductComponent implements OnInit{
   public productForm!: FormGroup;
   public productsToggle = false;
   public editStatus = false;
-  public currCategoryID = 0;
-  public currProductID = 0;
+  public currProductID!: number | string;
   public uploadPercent = 0;
   public isUploaded = false;
-  public isOpen = false;
 
   constructor(
     private categoryService: CategoryService,
@@ -53,8 +51,8 @@ export class AdminProductComponent implements OnInit{
   }
 
   loadCategories(): void {
-    this.categoryService.getAll().subscribe(data => {
-      this.adminCategories = data;
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategories = data as ICategoryResponse[];
       this.productForm.patchValue({
         category: this.adminCategories[0].id
       })
@@ -62,8 +60,8 @@ export class AdminProductComponent implements OnInit{
   }
 
   loadProducts(): void {
-    this.productService.getAll().subscribe(data => {
-      this.adminProducts = data;
+    this.productService.getAllFirebase().subscribe(data => {
+      this.adminProducts = data as IProductResponse[];
     })
   }
 
@@ -73,12 +71,12 @@ export class AdminProductComponent implements OnInit{
 
   saveProduct(): void {
     if(this.editStatus) {
-      this.productService.update(this.productForm.value, this.currProductID).subscribe(() => {
+      this.productService.updateFirebase(this.productForm.value, this.currProductID as string).then(() => {
         this.loadProducts();
         this.toastr.success('Product successfully updated');
       })
     } else {
-      this.productService.create(this.productForm.value).subscribe(() => {
+      this.productService.createFirebase(this.productForm.value).then(() => {
         this.loadProducts();
         this.toastr.success('Product successfully created');
       })
@@ -107,7 +105,7 @@ export class AdminProductComponent implements OnInit{
   }
 
   deleteProduct(product: IProductResponse): void {
-    this.productService.delete(product.id).subscribe(() => {
+    this.productService.deleteFirebase(product.id as string).then(() => {
       this.loadProducts();
       this.toastr.success('Product successfully deleted');
     })

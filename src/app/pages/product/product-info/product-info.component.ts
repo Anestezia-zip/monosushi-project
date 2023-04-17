@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IProductResponse } from 'src/app/shared/interfaces/interfaces';
+import {IProductResponse} from 'src/app/shared/interfaces/interfaces';
 import { OrderService } from 'src/app/shared/services/order/order.service';
 import { ProductService } from 'src/app/shared/services/product/product.service';
 
@@ -20,15 +20,13 @@ export class ProductInfoComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(response => {
-      this.currentProduct = response['productInfo'];
-    })  
+    this.loadProducts();
   }
 
   loadProducts(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'))
-    this.productService.getOne(id).subscribe(data => {
-      this.currentProduct = data;
+    const id = (this.activatedRoute.snapshot.paramMap.get('id')) as string
+    this.productService.getOneFirebase(id).subscribe(data => {
+      this.currentProduct = data as IProductResponse;
     })
   }
 

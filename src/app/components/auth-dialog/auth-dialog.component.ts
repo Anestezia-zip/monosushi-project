@@ -94,6 +94,7 @@ export class AuthDialogComponent implements OnInit{
       this.isLogin = !this.isLogin;
       this.dialogRef.close()
       this.authRegisterForm.reset();
+      this.login(email, password);
     }).catch(e => {
       this.toastr.error(e.message);
     })

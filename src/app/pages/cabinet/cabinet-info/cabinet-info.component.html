@@ -2,11 +2,11 @@
 	<h2><span style="padding: 5px 14px">1</span> Personal information</h2>
 	<form class="info-form">
 		<div class="small-inputs">
-			<input type="text" placeholder="*Your name" value="">
-			<input type="text" placeholder="*Your surname" value="">
+			<input type="text" placeholder="*Your name" [(ngModel)]="currentUser.firstName" name="firstName">
+			<input type="text" placeholder="*Your surname" [(ngModel)]="currentUser.lastName" name="lastName">
 		</div>
-		<input type="text" placeholder="*Your phone number" value="">
-		<input type="text" placeholder="*Your email" value="">
+		<input type="text" placeholder="*Your phone number" [(ngModel)]="currentUser.phoneNumber" name="phoneNumber">
+		<input type="email" placeholder="*Your email" [(ngModel)]="currentUser.email" name="email">
 	</form>
 
 	<h2><span>2</span>Addresess</h2>

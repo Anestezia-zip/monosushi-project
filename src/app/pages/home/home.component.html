@@ -3,7 +3,7 @@
 	<div class="hero-left-side">
 		<h1 class="hero-title">Satisfy your <span>cravings</span> with <br> delicious sushi!</h1>
 		<h2 class="hero-sec-title"><span>Monosushi</span> - experience the best of Japanese cuisine with our handcrafted Sushi Rolls.</h2>
-		<button class="hero-btn">DETAILS</button>
+		<button class="hero-btn" [routerLink]="[ '/discounts' ]" routerLinkActive="active">DISCOUNTS</button>
 	</div>
 	<figure class="hero-right-side">
 		<img src="../../../assets/images/sushi-hero-pic.png" alt="">
@@ -11,17 +11,17 @@
 </section>
 
 <section class="delivery">
-	<div>
+	<div class="delivery-areas">
 		<img width="36%" src="https://monosushi.com.ua/wp-content/uploads/2020/10/mn-delivery-img.svg" alt="delivery">
-		<button class="delivery-btn">DELIVERY AREAS</button>
+		<button class="delivery-btn" [routerLink]="[ '/delivery-and-payment' ]" routerLinkActive="active">DELIVERY AREAS</button>
 		<p class="delivery-line"></p>
 	</div>
-	<div>
+	<div class="delivery-areas">
 		<img width="26%" src="https://monosushi.com.ua/wp-content/uploads/2020/10/mono-supermen.svg" alt="delivery">
 		<p class="delivery-text">Average delivery time in the green zone <span>00:43:00</span></p>
 		<p class="delivery-line2"></p>
 	</div>
-	<div>
+	<div class="delivery-areas">
 		<img width="16%" src="https://monosushi.com.ua/wp-content/uploads/2020/10/mono-bonus.svg" alt="delivery">
 		<p class="delivery-text">Our working hours <br> We are open from <span>11am</span> to <span>10:30pm</span></p>
 	</div>
@@ -54,7 +54,7 @@
 	</li>
 </ul>
 
-<div class="cards-container">
+<section class="cards-container">
 	<div class="cards">
 		<div class="card" *ngFor="let product of userProducts">
 		  <div class="img-wrap" [routerLink]="[ '/products/'+product.category.path, product.id ]">
@@ -78,4 +78,4 @@
 		  </div>
 		</div>
 	</div>
-</div>
+</section>

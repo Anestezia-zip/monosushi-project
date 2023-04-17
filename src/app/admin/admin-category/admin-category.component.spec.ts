@@ -79,7 +79,7 @@ describe('AdminCategoryComponent', () => {
     const categoryServiceSpy = spyOn(categoryService, 'update').and.returnValue(of(fakeCategory));
     const toastrSpy = spyOn(toastr, 'success');
     component.saveCategory();
-    expect(categoryServiceSpy).toHaveBeenCalledWith(categoryForm.value, component.currCategoryID);
+    expect(categoryServiceSpy).toHaveBeenCalledWith(categoryForm.value, component.currCategoryID as number);
     expect(toastrSpy).toHaveBeenCalledWith('Category successfully updated');
     expect(component.editStatus).toBeFalse();
     expect(component.isUploaded).toBeFalse();
@@ -92,7 +92,7 @@ describe('AdminCategoryComponent', () => {
 
     component.deleteCategory(fakeCategory);
 
-    expect(categoryServiceSpy).toHaveBeenCalledWith(fakeCategory.id);
+    expect(categoryServiceSpy).toHaveBeenCalledWith(fakeCategory.id as number);
     expect(toastrSpy).toHaveBeenCalledWith('Category successfully deleted');
   });
 
