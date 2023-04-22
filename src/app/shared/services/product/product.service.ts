@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import {IProductRequest} from '../../interfaces/interfaces';
 import {
-  Firestore,
-  CollectionReference,
-  addDoc,
-  collectionData,
-  doc,
-  updateDoc,
-  deleteDoc, docData
+  Firestore, CollectionReference, addDoc, collectionData,
+  doc, updateDoc, deleteDoc, docData, query, where, getDocs
 } from '@angular/fire/firestore';
 import { DocumentData, collection } from '@firebase/firestore';
 
@@ -30,9 +25,15 @@ export class ProductService {
   //   return this.http.get<IProductResponse[]>(`${this.api.products}?category.path=${name}`);
   // }
 
-  getAllByCategory(name: string){
-    return collectionData(this.productCollection, { idField: `id` } )
-    //...
+  async getAllByCategory(name: string) {
+    const arr: DocumentData[] = [];
+    const category = query(
+      collection(this.afs, 'products'), where('category.path', '==', `${name}`));
+    const querySnapshot = await getDocs(category);
+    querySnapshot.forEach((doc) => {
+      arr.push({ ...doc.data(), id: doc.id });
+    });
+    return arr;
   }
 
   getOneFirebase(id: string) {

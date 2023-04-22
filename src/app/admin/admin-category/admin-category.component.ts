@@ -40,10 +40,6 @@ export class AdminCategoryComponent implements OnInit{
   }
 
   loadCategories(): void {
-    // this.categoryService.getAll().subscribe(data => {
-    //   this.adminCategories = data;
-    // })
-
     this.categoryService.getAllFirebase().subscribe(data => {
       this.adminCategories = data as ICategoryResponse[];
     })
@@ -55,20 +51,11 @@ export class AdminCategoryComponent implements OnInit{
 
   saveCategory(): void {
     if(this.editStatus) {
-      // this.categoryService.update(this.categoryForm.value, this.currCategoryID).subscribe(() => {
-      //   this.loadCategories();
-      //   this.toastr.success('Category successfully updated');
-      // })
-
       this.categoryService.updateFirebase(this.categoryForm.value, this.currCategoryID as string).then(() => {
         this.loadCategories();
         this.toastr.success('Category successfully updated');
       })
     } else {
-      // this.categoryService.create(this.categoryForm.value).subscribe(() => {
-      //   this.loadCategories();
-      //   this.toastr.success('Category successfully created');
-      // })
       this.categoryService.createFirebase(this.categoryForm.value).then(() => {
         this.loadCategories();
         this.toastr.success('Category successfully created');

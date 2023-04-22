@@ -39,17 +39,16 @@
 			  <div class="weight">{{ product.weight }}</div>
 			</div>
 			<div class="card-footer">
-			  <div class="price">{{ product.price }} грн</div>
+			  <div class="price">{{ product.price * product.count }} грн</div>
 			  <div class="amount">
-				<button><i class="fa-solid fa-minus fa-lg"></i></button>
-				<span>1</span>
-				<button><i class="fa-solid fa-plus fa-lg"></i></button>
+				<button (click)="productCount(product, false)"><i class="fa-solid fa-minus fa-lg"></i></button>
+				<input type="text" class="amount-input" [value]="product.count">
+				<button (click)="productCount(product, true)"><i class="fa-solid fa-plus fa-lg"></i></button>
 			  </div>
-			  <button class="order-btn">ORDER</button>
+			  <button class="order-btn" (click)="addToBasket(product)">ORDER</button>
 			</div>
 		  </div>
 		</div>
 	</div>
 </div>
 
-  

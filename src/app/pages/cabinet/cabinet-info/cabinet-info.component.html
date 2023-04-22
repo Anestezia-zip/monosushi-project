@@ -1,12 +1,12 @@
 <div class="info">
 	<h2><span style="padding: 5px 14px">1</span> Personal information</h2>
-	<form class="info-form">
+	<form class="info-form" [formGroup]="cabinetForm">
 		<div class="small-inputs">
-			<input type="text" placeholder="*Your name" [(ngModel)]="currentUser.firstName" name="firstName">
-			<input type="text" placeholder="*Your surname" [(ngModel)]="currentUser.lastName" name="lastName">
+			<input type="text" placeholder="*Your name" formControlName="firstName">
+			<input type="text" placeholder="*Your surname" formControlName="lastName">
 		</div>
-		<input type="text" placeholder="*Your phone number" [(ngModel)]="currentUser.phoneNumber" name="phoneNumber">
-		<input type="email" placeholder="*Your email" [(ngModel)]="currentUser.email" name="email">
+		<input type="text" placeholder="*Your phone number" formControlName="phoneNumber">
+		<input type="email" placeholder="*Your email" formControlName="email">
 	</form>
 
 	<h2><span>2</span>Addresess</h2>
