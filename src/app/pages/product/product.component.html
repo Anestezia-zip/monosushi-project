@@ -4,31 +4,31 @@
 
 <ul class="products-tabs">
 	<li class="products-item">
-	  	<a class="products-link" (click)="selectTab(1)" [class.active]="selectedTab === 1">All</a>
+	  	<a class="products-link" (click)="selectTab('All')" [class.active]="selectedTab === 'All'">All</a>
 	</li>
 	<li class="products-item">
-	  	<a class="products-link" (click)="selectTab(2)" [class.active]="selectedTab === 2">Philadelphia </a>
+	  	<a class="products-link" (click)="selectTab('Philadelphia')" [class.active]="selectedTab === 'Philadelphia'">Philadelphia </a>
 	</li>
 	<li class="products-item" >
-		<a class="products-link" (click)="selectTab(3)" [class.active]="selectedTab === 3">Сalifornia</a>
+		<a class="products-link" (click)="selectTab('Сalifornia')" [class.active]="selectedTab === 'Сalifornia'">Сalifornia</a>
 	</li>
 	<li class="products-item">
-		<a class="products-link" (click)="selectTab(4)" [class.active]="selectedTab === 4">Baked</a>
+		<a class="products-link" (click)="selectTab('Baked')" [class.active]="selectedTab === 'Baked'">Baked</a>
 	</li>
 	<li class="products-item">
-		<a class="products-link" (click)="selectTab(5)" [class.active]="selectedTab === 5">Branded</a>
+		<a class="products-link" (click)="selectTab('Branded')" [class.active]="selectedTab === 'Branded'">Branded</a>
 	</li>
 	<li class="products-item">
-		<a class="products-link" (click)="selectTab(6)" [class.active]="selectedTab === 6">Maki</a>
+		<a class="products-link" (click)="selectTab('Maki')" [class.active]="selectedTab === 'Maki'">Maki</a>
 	</li>
 	<li class="products-item">
-		<a class="products-link" (click)="selectTab(7)" [class.active]="selectedTab === 7">Premium</a>
+		<a class="products-link" (click)="selectTab('Premium')" [class.active]="selectedTab === 'Premium'">Premium</a>
 	</li>
 </ul>
 
 <div class="cards-container">
 	<div class="cards">
-		<div class="card" *ngFor="let product of userProducts">
+		<div class="card" *ngFor="let product of userProducts | sort:selectedTab">
 		  <div class="img-wrap" [routerLink]="[ '/products/'+product.category.path, product.id ]">
 			<img [src]="product.imagePath" alt="">
 		  </div>

@@ -14,18 +14,22 @@ const MATERIAL = [
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
-	declarations: [],
+	declarations: [
+    SortPipe
+  ],
 	imports: [
     ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
   ],
-	exports: [
+  exports: [
     ...MATERIAL,
     FormsModule,
     ReactiveFormsModule,
+    SortPipe,
   ]
 })
 

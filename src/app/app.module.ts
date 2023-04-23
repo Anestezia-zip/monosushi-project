@@ -26,7 +26,7 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     FooterComponent,
     AuthDialogComponent,
-    CallbackDialogComponent,
+    CallbackDialogComponent
   ],
   imports: [
     BrowserModule,

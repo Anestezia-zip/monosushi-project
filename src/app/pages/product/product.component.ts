@@ -15,9 +15,9 @@ export class ProductComponent implements OnInit, OnDestroy{
   public userProducts: IProductResponse[] = [];
   private evenSubscription!: Subscription;
   public currentCategoryName!: string;
-  selectedTab = 1;
+  selectedTab!: string;
 
-  selectTab(tabIndex: number) {
+  selectTab(tabIndex: string) {
     this.selectedTab = tabIndex;
   }
 

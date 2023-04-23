@@ -63,7 +63,7 @@ export class AuthDialogComponent implements OnInit{
   loginUser(): void {
     const { email, password } = this.authLoginForm.value;
     this.login(email, password).then(() => {
-      this.toastr.success('User successfully login');
+      this.toastr.success('You successfully login');
       this.dialogRef.close()
     }).catch(e => {
       this.toastr.error(e.message);
@@ -85,6 +85,8 @@ export class AuthDialogComponent implements OnInit{
         console.log('error', e);
       })
   }
+
+
 
   registerUser(): void {
     const { email, password } = this.authRegisterForm.value;

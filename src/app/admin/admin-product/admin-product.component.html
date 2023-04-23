@@ -30,7 +30,7 @@
 					<img width="10%" [src]="valueByControl('imagePath')" alt="">
 					<button type="button" (click)="deleteImage()">delete</button>
 				</ng-container>
-				
+
 				<button type="submit" [disabled]="productForm.invalid">
 					{{ editStatus ? 'UPDATE PRODUCT' : 'SAVE PRODUCT' }}
 				</button>
@@ -40,7 +40,6 @@
 	<table *ngIf="!productsToggle" class="fade-in-down">
 		<thead>
 			<tr>
-				<th>№</th>
 				<th>Category</th>
 				<th>Name</th>
 				<th>Ingredients</th>
@@ -53,7 +52,6 @@
 		</thead>
 		<tbody>
 			<tr *ngFor="let product of adminProducts">
-				<td>{{ product.id }}</td>
 				<td>{{ product.category.name }}</td>
 				<td>{{ product.name }}</td>
 				<td>{{ product.ingredients }}</td>
