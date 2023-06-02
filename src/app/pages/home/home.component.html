@@ -31,49 +31,49 @@
 <h1 class="main-title">Products</h1>
 
 <ul class="products-tabs">
-	<li class="products-item">
-	  	<a class="products-link" (click)="selectTab(1)" [class.active]="selectedTab === 1">All</a>
-	</li>
-	<li class="products-item">
-	  	<a class="products-link" (click)="selectTab(2)" [class.active]="selectedTab === 2">Philadelphia </a>
-	</li>
-	<li class="products-item" >
-		<a class="products-link" (click)="selectTab(3)" [class.active]="selectedTab === 3">Сalifornia</a>
-	</li>
-	<li class="products-item">
-		<a class="products-link" (click)="selectTab(4)" [class.active]="selectedTab === 4">Baked</a>
-	</li>
-	<li class="products-item">
-		<a class="products-link" (click)="selectTab(5)" [class.active]="selectedTab === 5">Branded</a>
-	</li>
-	<li class="products-item">
-		<a class="products-link" (click)="selectTab(6)" [class.active]="selectedTab === 6">Maki</a>
-	</li>
-	<li class="products-item">
-		<a class="products-link" (click)="selectTab(7)" [class.active]="selectedTab === 7">Premium</a>
-	</li>
+  <li class="products-item">
+    <a class="products-link" (click)="selectTab('All')" [class.active]="selectedTab === 'All'">All</a>
+  </li>
+  <li class="products-item">
+    <a class="products-link" (click)="selectTab('Philadelphia')" [class.active]="selectedTab === 'Philadelphia'">Philadelphia </a>
+  </li>
+  <li class="products-item" >
+    <a class="products-link" (click)="selectTab('California')" [class.active]="selectedTab === 'California'">California</a>
+  </li>
+  <li class="products-item">
+    <a class="products-link" (click)="selectTab('Baked')" [class.active]="selectedTab === 'Baked'">Baked</a>
+  </li>
+  <li class="products-item">
+    <a class="products-link" (click)="selectTab('Branded')" [class.active]="selectedTab === 'Branded'">Branded</a>
+  </li>
+  <li class="products-item">
+    <a class="products-link" (click)="selectTab('Maki')" [class.active]="selectedTab === 'Maki'">Maki</a>
+  </li>
+  <li class="products-item">
+    <a class="products-link" (click)="selectTab('Premium')" [class.active]="selectedTab === 'Premium'">Premium</a>
+  </li>
 </ul>
 
 <section class="cards-container">
 	<div class="cards">
-		<div class="card" *ngFor="let product of userProducts">
-		  <div class="img-wrap" [routerLink]="[ '/products/'+product.category.path, product.id ]">
+		<div class="card" *ngFor="let product of userProducts | sort:selectedTab">
+		  <div class="img-wrap" [routerLink]="[ '/products/'+product.path, product.id ]">
 			<img [src]="product.imagePath" alt="">
 		  </div>
 		  <div class="card-content">
-			<div class="title" [routerLink]="[ '/products/'+product.category.path, product.id ]">{{ product.name }}</div>
+			<div class="title" [routerLink]="[ '/products/'+product.path, product.id ]">{{ product.name }}</div>
 			<div class="card-description">
 			  <div class="description">{{ product.ingredients }}</div>
 			  <div class="weight">{{ product.weight }}</div>
 			</div>
 			<div class="card-footer">
-			  <div class="price">{{ product.price }} грн</div>
+			  <div class="price">{{ product.price * product.count }} грн</div>
 			  <div class="amount">
-				<button><i class="fa-solid fa-minus fa-lg"></i></button>
-				<span>1</span>
-				<button><i class="fa-solid fa-plus fa-lg"></i></button>
+				<button (click)="productCount(product, false)"><i class="fa-solid fa-minus fa-lg"></i></button>
+          <input type="text" class="amount-input" [value]="product.count">
+          <button (click)="productCount(product, true)"><i class="fa-solid fa-plus fa-lg"></i></button>
 			  </div>
-			  <button class="order-btn">ORDER</button>
+			  <button class="order-btn" (click)="addToBasket(product)">ORDER</button>
 			</div>
 		  </div>
 		</div>

@@ -21,9 +21,7 @@ export class ProductService {
     return collectionData(this.productCollection, { idField: 'id' })
   }
 
-  // getAllByCategory(name: string): Observable<IProductResponse[]> {
-  //   return this.http.get<IProductResponse[]>(`${this.api.products}?category.path=${name}`);
-  // }
+
 
   async getAllByCategory(name: string) {
     const arr: DocumentData[] = [];

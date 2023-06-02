@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit, OnDestroy{
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private orderService: OrderService
   ){
     this.evenSubscription = this.router.events.subscribe(event => {
@@ -36,6 +36,7 @@ export class ProductComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.loadProducts()
+    this.selectedTab = 'All';
   }
 
   loadProducts(): void {

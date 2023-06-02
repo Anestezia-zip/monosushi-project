@@ -87,7 +87,7 @@
 				<div class="empty-basket" *ngIf="productsInBasket.length == 0">
 					<img src="/assets/images/cart-empty-img.svg" alt="">
 					<p>Cart is empty</p>
-					<button>GO TO THE CATALOG</button>
+					<button><a [routerLink]="[ '/products/rolls' ]" routerLinkActive="active">GO TO THE CATALOG</a></button>
 				</div>
 				<ul class="header-basket-modal-top" *ngIf="productsInBasket.length > 0">
 					<li *ngFor="let product of productsInBasket; index as i" class="basket-products-wrapper">

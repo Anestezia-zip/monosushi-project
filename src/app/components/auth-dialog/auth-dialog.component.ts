@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth';
-import { doc, docData , Firestore, setDoc } from '@angular/fire/firestore';
+import { doc, getDoc, Firestore, setDoc } from '@angular/fire/firestore';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -62,28 +62,32 @@ export class AuthDialogComponent implements OnInit{
 
   loginUser(): void {
     const { email, password } = this.authLoginForm.value;
-    this.login(email, password).then(() => {
-      this.toastr.success('You successfully login');
-      this.dialogRef.close()
+    this.login(email, password);
+  }
+
+  login(email: string, password: string): void {
+    signInWithEmailAndPassword(this.auth, email, password).then(credential => {
+      this.getUserData(credential.user.uid);
     }).catch(e => {
       this.toastr.error(e.message);
     })
   }
 
-  async login(email: string, password: string): Promise<void> {
-      const credential = await signInWithEmailAndPassword(this.auth, email, password);
-      docData(doc(this.afs, 'users', credential.user.uid)).subscribe(user => {
-        const currentUser = { ...user, uid: credential.user.uid };
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        if(user && user['role'] === ROLE.USER) {
-          this.router.navigate(['/cabinet']);
-        } else if(user && user['role'] === ROLE.ADMIN){
-          this.router.navigate(['/admin']);
-        }
-        this.accountService.isUserLogin$.next(true);
-      }, (e) => {
-        console.log('error', e);
-      })
+  getUserData(id: string): void {
+    getDoc(doc(this.afs, 'users', id)).then(docSnap => {
+      const currentUser: any = { ...docSnap.data(), uid: id };
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      this.accountService.isUserLogin$.next(true)
+      this.toastr.success('You successfully login');
+      if(currentUser && currentUser['role'] === ROLE.USER) {
+        this.router.navigate(['/cabinet/info'])
+      } else if(currentUser && currentUser['role'] === ROLE.ADMIN){
+        this.router.navigate(['/admin'])
+      }
+      this.dialogRef.close()
+    }, (e) => {
+      console.log('error', e);
+    })
   }
 
 

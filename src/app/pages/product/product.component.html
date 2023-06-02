@@ -2,7 +2,7 @@
 <div class="main-line"></div>
 <h1 class="main-title">Products</h1>
 
-<ul class="products-tabs">
+<ul class="products-tabs" *ngIf="router.url === '/products/rolls'">
 	<li class="products-item">
 	  	<a class="products-link" (click)="selectTab('All')" [class.active]="selectedTab === 'All'">All</a>
 	</li>
@@ -10,7 +10,7 @@
 	  	<a class="products-link" (click)="selectTab('Philadelphia')" [class.active]="selectedTab === 'Philadelphia'">Philadelphia </a>
 	</li>
 	<li class="products-item" >
-		<a class="products-link" (click)="selectTab('Сalifornia')" [class.active]="selectedTab === 'Сalifornia'">Сalifornia</a>
+		<a class="products-link" (click)="selectTab('California')" [class.active]="selectedTab === 'California'">California</a>
 	</li>
 	<li class="products-item">
 		<a class="products-link" (click)="selectTab('Baked')" [class.active]="selectedTab === 'Baked'">Baked</a>
@@ -29,11 +29,11 @@
 <div class="cards-container">
 	<div class="cards">
 		<div class="card" *ngFor="let product of userProducts | sort:selectedTab">
-		  <div class="img-wrap" [routerLink]="[ '/products/'+product.category.path, product.id ]">
+		  <div class="img-wrap" [routerLink]="[ '/products/'+product.path, product.id ]">
 			<img [src]="product.imagePath" alt="">
 		  </div>
 		  <div class="card-content">
-			<div class="title" [routerLink]="[ '/products/'+product.category.path, product.id ]">{{ product.name }}</div>
+			<div class="title" [routerLink]="[ '/products/'+product.path, product.id ]">{{ product.name }}</div>
 			<div class="card-description">
 			  <div class="description">{{ product.ingredients }}</div>
 			  <div class="weight">{{ product.weight }}</div>

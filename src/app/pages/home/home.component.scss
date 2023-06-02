@@ -293,34 +293,40 @@
   }
 
   .amount {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 18px;
-	border: 1px solid lightgray;
-	padding: 12px 6px;
-	border-radius: 6px;
-	margin-left: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border: 1px solid lightgray;
+    padding: 12px 6px;
+    border-radius: 6px;
+    margin-left: 16px;
+
+    &-input {
+      font-size: 20px;
+      width: 20px;
+      border: none;
+    }
   }
 
   .amount button {
-	padding: 5px;
-	border-radius: 6px;
-	border: none;
-	background-color: transparent;
-	color: #000;
-	outline: none;
-	cursor: pointer;
-	margin: 0 10px;
+    padding: 5px;
+    border-radius: 6px;
+    border: none;
+    background-color: transparent;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    margin: 0 10px;
 
-	&:hover {
-		transition: .2s all ease-in-out;
-		background-color: $primary-color;
-	}
+    &:hover {
+      transition: .2s all ease-in-out;
+      background-color: $primary-color;
+    }
 
   }
 
-   .order-btn {
+.order-btn {
 		background-color: $primary-color;
 		border-radius: 6px;
 		border: 2px solid $primary-color;

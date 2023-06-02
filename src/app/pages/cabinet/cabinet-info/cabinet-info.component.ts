@@ -18,8 +18,7 @@ export class CabinetInfoComponent implements OnInit{
 
   ngOnInit() {
     this.initCabinetForm();
-    this.getUser();
-    // this.checkUpdatesUserLogin()
+    this.checkUpdatesUserLogin()
   }
 
   initCabinetForm(): void {
@@ -29,6 +28,7 @@ export class CabinetInfoComponent implements OnInit{
       phoneNumber: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]]
     });
+    this.getUser();
   }
 
   getUser(): void {
@@ -41,11 +41,11 @@ export class CabinetInfoComponent implements OnInit{
     });
   }
 
-  // checkUpdatesUserLogin():void {
-  //   this.accountService.isUserLogin$.subscribe(() => {
-  //     this.getUser();
-  //   })
-  // }
+  checkUpdatesUserLogin():void {
+    this.accountService.isUserLogin$.subscribe(() => {
+      this.getUser();
+    })
+  }
 
 
 }

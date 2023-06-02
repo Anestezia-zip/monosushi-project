@@ -118,13 +118,17 @@
 
 	&-user,
   &-user-profile {
-		margin-left: 64px;
+		margin-left: 84px;
 		margin-top: 30px;
 	}
 
+  &-user-profile {
+    margin-left: 104px;
+  }
+
 	.admin {
 		margin-top: 25px;
-		margin-left: 15px;
+		margin-left: 45px;
 		border: 2px solid lightgray;
 		height: 20px;
 		padding: 10px;
