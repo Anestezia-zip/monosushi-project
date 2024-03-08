@@ -2,16 +2,25 @@
 @import '../../../shared/styles/variables';
 
 .container {
-	max-width: 900px;
-	margin: 100px auto;
+	width: 90%;
+	margin: 60px auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	position: relative;
+
+	& ul {
+		max-width: 90%;
+	}
+
+	& h1 {
+		max-width: 90%;
+		padding: 8px 18px;
+	}
 }
 
 .line {
-	width: 700px;
+	max-width: 700px;
 	height: 6px;
 	background-color: #000;
 	border-radius: 8px;
@@ -21,7 +30,7 @@
 }
 
 h1 {
-	width: 860px;
+	max-width: 860px;
 	height: 190px;
 	background-color: $primary-color;
 	display: flex;
@@ -53,7 +62,7 @@ li::before {
 }
 
 .discount-nav {
-	margin-top: 25px;
+	margin-top: 150px;
 	margin-left: 60px;
 }
 
